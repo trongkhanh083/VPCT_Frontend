@@ -1,20 +1,19 @@
-import '../css/App.css';
+import '../App.css';
 
 import Header from '../components/Header';
 import Menu from '../components/Menu';
-import Dashboard from '../components/Dashboard';
+import Statistical from '../components/Statistical';
 import Footer from '../components/Footer';
-import '../css/menu.css'
 
-function Home() {
+function StatisPage() {
     return (
         <div class="wrapper">
         <Header />
         <Menu />
-        <Dashboard />
+        <Statistical />
         <Footer />
         </div>
     );
 }
 
-export default Home;
+export default StatisPage;

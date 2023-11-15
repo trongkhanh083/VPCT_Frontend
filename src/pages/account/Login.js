@@ -4,6 +4,7 @@ export default class Login extends Component {
   render() {
     return (
         <div className="hold-transition login-page">
+            
         <div className="login-box">
             {/* /.login-logo */}
             <div className="card card-outline card-primary">

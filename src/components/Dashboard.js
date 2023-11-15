@@ -32,6 +32,9 @@ export default class Dashboard extends Component {
                     <div className="card">
                         {/* /.card-header */}
                         <div className="card-body">
+                            <div>
+                                
+                            </div>
                         <table id="example1" className="table table-bordered table-striped">
                             <thead>
                             <tr>

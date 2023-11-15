@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
+import '../css/menu.css'
 
 export default class Menu extends Component {
   render() {
     return (
         <div>
         {/* Main Sidebar Container */}
-        <aside className="main-sidebar sidebar-dark-primary elevation-4">
+        <aside className="main-sidebar sidebar-light-primary sidebar-menu">
             {/* Brand Logo */}
             <a href="/home" className="brand-link">
-            <img src="dist/img/project_logo.jpg" alt="Logo" className="brand-image img-circle elevation-3" style={{opacity: '8'}} />
+            {/* <img src="dist/img/project_logo.jpg" alt="Logo" className="brand-image img-circle elevation-3" style={{opacity: '8'}} /> */}
+            <img src="https://vnu.edu.vn/upload/2019/06/24238/image/VNU-UET%20logo.jpg" alt="Logo" className="brand-image img-circle elevation-3" style={{opacity: '8'}} />
+            
             <span className="brand-text font-weight-bold">Hệ thống QL CSDL</span><br />
             <span className="brand-text font-weight-light user-panel mt-3 pb-3 mb-3 d-flex" style={{fontSize: 16, paddingLeft: 16}}>
                 Nhiệm vụ KH&CN trực tuyến
@@ -32,8 +35,8 @@ export default class Menu extends Component {
                 <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 {/* Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library */}
-                <li className="nav-item menu-open">
-                    <a href="/home" className="nav-link active">
+                <li className="li-nav-menu-green nav-item">
+                    <a href="/home" className="nav-link ">
                     <i className="nav-icon fas fa-tachometer-alt" />
                     <p>
                         Chương trình
@@ -41,7 +44,7 @@ export default class Menu extends Component {
                     </p>
                     </a>
                 </li>
-                <li className="nav-item">
+                <li className=" li-nav-menu-green nav-item">
                     <a href="/duty" className="nav-link">
                     <i className="nav-icon fas fa-th" />
                     <p>
@@ -49,56 +52,59 @@ export default class Menu extends Component {
                     </p>
                     </a>
                 </li>
-                <li className="nav-item">
-                    <a href="#" className="nav-link">
+
+              
+
+                <li className="li-nav-menu-green nav-item">
+                    <a class="nav-link " href="#submenu2" data-toggle="collapse" data-target="#submenu2">  
                     <i className="nav-icon fas fa-chart-pie" />
                     <p>
                         Thống kê
                         <i className="right fas fa-angle-left" />
                     </p>
                     </a>
-                    <ul className="nav nav-treeview">
+                    <ul class="list-unstyled flex-column pl-3 collapse" id="submenu2" aria-expanded="false">
                     <li className="nav-item">
-                        <a href="#" className="nav-link">
+                        <a href="/Statistical/programReport" className="nav-link">
                         <i className="far fa-circle nav-icon" />
                         <p>Báo cáo kết quả thực hiện chương trình</p>
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a href="#" className="nav-link">
+                        <a href="/Statistical/Template_report" className="nav-link">
                         <i className="far fa-circle nav-icon" />
                         <p>Mẫu báo cáo sơ kết</p>
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a href="#" className="nav-link">
+                        <a href="/Statistical/Mission_report" className="nav-link">
                         <i className="far fa-circle nav-icon" />
                         <p>Báo cáo tổng hợp nhiệm vụ</p>
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a href="#" className="nav-link">
+                        <a href="/Statistical/Mission_information" className="nav-link">
                         <i className="far fa-circle nav-icon" />
                         <p>Thông tin chi tiết nhiệm vụ</p>
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a href="#" className="nav-link">
+                        <a href="/Statistical/Search_for_tasks" className="nav-link">
                         <i className="far fa-circle nav-icon" />
                         <p>Tìm kiếm nhiệm vụ KH&CN</p>
                         </a>
                     </li>
                     </ul>
                 </li>
-                <li className="nav-item">
-                    <a href="#" className="nav-link">
+                <li className="li-nav-menu-green nav-item">
+                <a class="nav-link " href="#submenu3" data-toggle="collapse" data-target="#submenu3">     
                     <i className="nav-icon fas fa-copy" />
                     <p>
                         Danh mục
                         <i className="fas fa-angle-left right" />
                     </p>
                     </a>
-                    <ul className="nav nav-treeview">
+                    <ul class="list-unstyled flex-column pl-3 collapse" id="submenu3" aria-expanded="false">
                     <li className="nav-item">
                         <a href="#" className="nav-link">
                         <i className="far fa-circle nav-icon" />
@@ -191,15 +197,15 @@ export default class Menu extends Component {
                     </li>
                     </ul>
                 </li>
-                <li className="nav-item">
-                    <a href="#" className="nav-link">
+                <li className="li-nav-menu-green nav-item">
+                <a class="nav-link " href="#submenu4" data-toggle="collapse" data-target="#submenu4">   
                     <i className="nav-icon fas fa-edit" />
                     <p>
                         Quản trị hệ thống
                         <i className="fas fa-angle-left right" />
                     </p>
                     </a>
-                    <ul className="nav nav-treeview">
+                    <ul class="list-unstyled flex-column pl-3 collapse" id="submenu4" aria-expanded="false">
                     <li className="nav-item">
                         <a href="#" className="nav-link">
                         <i className="far fa-circle nav-icon" />
@@ -232,15 +238,15 @@ export default class Menu extends Component {
                     </li>
                     </ul>
                 </li>
-                <li className="nav-item">
-                    <a href="#" className="nav-link">
+                <li className="li-nav-menu-green nav-item">
+                <a class="nav-link " href="#submenu5" data-toggle="collapse" data-target="#submenu5">   
                     <i className="nav-icon far fa-plus-square" />
                     <p>
                         Trợ giúp
                         <i className="fas fa-angle-left right" />
                     </p>
                     </a>
-                    <ul className="nav nav-treeview">
+                    <ul class="list-unstyled flex-column pl-3 collapse" id="submenu5" aria-expanded="false">
                     <li className="nav-item">
                         <a href="#" className="nav-link">
                         <i className="far fa-circle nav-icon" />
@@ -261,6 +267,21 @@ export default class Menu extends Component {
                     </li>
                     </ul>
                 </li>
+
+
+                <li className="logout  nav-item">
+                    <a href="/home" className="nav-link ">
+                    <i className="icon-logout nav-icon fas fa-tachometer-alt" />
+                    <p id='p-logout'>
+                        Đăng xuất
+                        <i className="right fas" />
+                    </p>
+                    </a>
+                </li>
+                
+
+                    
+                
                 </ul>
             </nav>
             {/* /.sidebar-menu */}
