@@ -1,0 +1,51 @@
+.div-option {
+    display: flex;
+    margin-bottom: 10px; /* Tăng khoảng cách giữa các hàng */
+}
+
+/* Tăng khoảng cách giữa label và select */
+label {
+    margin-right: 10px;
+}
+
+.option-select {
+    width: 70%;
+    /* text-align: right; */
+}
+
+.custom-select:hover{
+    border-color: #059669;
+}
+
+#typeP {
+    margin-right: 86px;
+}
+
+#typeM {
+    margin-right: 68px;
+}
+
+#compulsory-sign {
+    color: red;
+}
+.opchildren::selection {
+    background-color: #059669;
+}
+
+.div-button-report {
+    display: flex;
+    justify-content: flex-end; /* Căn chỉnh sang phải */
+    padding: 10px;
+}
+
+.button-report {
+    margin: 10px;
+    color: white;
+    height: 45px;
+    width: 130px;
+    border-radius: 10px;
+}
+
+.cccontent-wrapper {
+    margin: 30px;
+}
