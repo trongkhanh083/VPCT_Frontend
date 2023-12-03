@@ -15,7 +15,7 @@ function Search_for_tasks() {
                 <div className="container-fluid">
                     <div className="row mb-2">
                         <div className="col-sm-6">
-                            <h1>Tìm kiếm nhiệm vụ KH&CN </h1>
+                            <h5>Tìm kiếm nhiệm vụ KH&CN </h5>
                         </div>
                         <div className="col-sm-6">
                             <ol className="breadcrumb float-sm-right">

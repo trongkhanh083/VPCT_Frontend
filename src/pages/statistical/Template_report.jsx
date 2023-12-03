@@ -15,7 +15,7 @@ function Template_report() {
                 <div className="container-fluid">
                     <div className="row mb-2">
                         <div className="col-sm-6">
-                            <h1>Mẫu báo cáo sơ kết</h1>
+                            <h5>Mẫu báo cáo sơ kết</h5>
                         </div>
                         <div className="col-sm-6">
                             <ol className="breadcrumb float-sm-right">

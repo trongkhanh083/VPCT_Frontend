@@ -22,13 +22,15 @@ import System_configuration from "./system/System_configuration";
 import Login_log from "./system/Login_log";
 import Usage_process from "./help/Usage_process";
 import Infor_software from "./help/Infor_software";
+import Forgot_password from "./account/Forgot_password";
 
 const Main = () => {
     return (
         <Routes>
-            <Route exact path="/" element={ <Home /> }></Route>
+            <Route exact path="/" element={ <Login /> }></Route>
             <Route exact path="/home" element={ <Home /> }></Route>
             <Route exact path="/login" element={ <Login /> }></Route>
+            <Route exact path="/forgot_password" element={ <Forgot_password /> }></Route>
             <Route exact path="/duty" element={ <Duty /> }></Route>
             <Route exact path="/profile" element={ <Profile /> }></Route>
             <Route exact path="/statistical/program_report" element={ <Program_report /> }></Route>

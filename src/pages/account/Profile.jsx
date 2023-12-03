@@ -14,7 +14,7 @@ export default class Profile extends Component {
                 <div className="col-sm-6">
                     <ol className="breadcrumb float-sm-right">
                     <li className="breadcrumb-item"><a href="/home">Chương trình</a></li>
-                    <li className="breadcrumb-item active">Hồ sơ</li>
+                    <li className="breadcrumb-item active">Dữ liệu</li>
                     </ol>
                 </div>
                 </div>
@@ -62,7 +62,6 @@ export default class Profile extends Component {
                         <ul className="nav nav-pills">
                         <li className="nav-item"><a className="nav-link active" href="#activity" data-toggle="tab">Đổi thông tin</a></li>
                         <li className="nav-item"><a className="nav-link" href="#timeline" data-toggle="tab">Đổi mật khẩu</a></li>
-                        <li className="nav-item"><a className="nav-link" href="#settings" data-toggle="tab">Hoạt động gần đây</a></li>
                         </ul>
                     </div>{/* /.card-header */}
                     <div className="card-body">
@@ -71,13 +70,13 @@ export default class Profile extends Component {
                             {/* Post */}
                             <form className="form-horizontal">
                             <div className="form-group row">
-                                <label htmlFor="inputName" className="col-sm-2 col-form-label">Họ và tên(*)</label>
+                                <label htmlFor="inputName" className="col-sm-2 col-form-label d-inline">Họ và tên <p className="text-danger d-inline">(*)</p></label>
                                 <div className="col-sm-10">
                                 <input type="email" className="form-control" id="inputName" placeholder="Quản trị hệ thống" />
                                 </div>
                             </div>
                             <div className="form-group row">
-                                <label htmlFor="inputEmail" className="col-sm-2 col-form-label">Email</label>
+                                <label htmlFor="inputEmail" className="col-sm-2 col-form-label d-inline">Email <p className="text-danger d-inline">(*)</p></label>
                                 <div className="col-sm-10">
                                 <input type="email" className="form-control" id="inputEmail" placeholder="tddat@most.gov.vn" />
                                 </div>
@@ -103,13 +102,14 @@ export default class Profile extends Component {
                             <div className="form-group row">
                                 <label htmlFor="inputSkills" className="col-sm-2 col-form-label">Ảnh đại diện</label>
                                 <div className="col-sm-10">
-                                <input type="text" className="form-control" id="inputSkills" placeholder="" />
+                                <input class="form-control" type="file" id="formFile" />
                                 </div>
                             </div>
                             
                             <div className="form-group row">
-                                <div className="offset-sm-2 col-sm-10">
-                                <button type="submit" className="btn btn-danger">Lưu</button>
+                                <div className="col-sm-10">
+                                <button type="submit" className="btn btn-success mr-3 mt-3"><i class="fas fa-save"></i> Lưu</button>
+                                <button type="submit" className="btn btn-danger mt-3"><i class="fas fa-times"></i> Hủy</button>
                                 </div>
                             </div>
                             </form>
@@ -120,36 +120,36 @@ export default class Profile extends Component {
                             {/* The timeline */}
                             <form className="form-horizontal">
                             <div className="form-group row">
-                                <label htmlFor="inputName" className="col-sm-2 col-form-label">Tên đăng nhập(*)</label>
+                                <label htmlFor="inputName" className="col-sm-2 col-form-label">Tên đăng nhập</label>
                                 <div className="col-sm-10">
                                 <input type="email" className="form-control" id="inputName" placeholder="sysadmin" />
                                 </div>
                             </div>
                             <div className="form-group row">
-                                <label htmlFor="inputEmail" className="col-sm-2 col-form-label">Mật khẩu cũ(*)</label>
+                                <label htmlFor="inputEmail" className="col-sm-2 col-form-label">Mật khẩu cũ <p className="text-danger d-inline">(*)</p></label>
                                 <div className="col-sm-10">
                                 <input type="email" className="form-control" id="inputEmail" placeholder="" />
                                 </div>
-                                <p style={{fontSize: 14, paddingLeft: 160, color: 'blue'}}>
+                                <p className="col-sm-10 text-primary small">
                                     Mật khẩu là chuỗi hơn 8 ký tự gồm chữ hoa, thường, chữ số và ký tự đặc biệt
                                 </p>
                             </div>
                             <div className="form-group row">
-                                <label htmlFor="inputName2" className="col-sm-2 col-form-label">Mật khẩu mới(*)</label>
+                                <label htmlFor="inputName2" className="col-sm-2 col-form-label">Mật khẩu mới <p className="text-danger d-inline">(*)</p></label>
                                 <div className="col-sm-10">
                                 <input type="text" className="form-control" id="inputName2" placeholder="" />
                                 </div>
                             </div>
                             <div className="form-group row">
-                                <label htmlFor="inputExperience" className="col-sm-2 col-form-label">Nhắc lại mật khẩu</label>
+                                <label htmlFor="inputExperience" className="col-sm-4 col-form-label d-inline">Nhắc lại mật khẩu <p className="text-danger d-inline">(*)</p></label>
                                 <div className="col-sm-10">
                                 <textarea className="form-control" id="inputExperience" placeholder="" defaultValue={""} />
                                 </div>
                             </div>
                             
                             <div className="form-group row">
-                                <div className="offset-sm-2 col-sm-10">
-                                <button type="submit" className="btn btn-danger">Lưu</button>
+                                <div className="col-sm-10">
+                                <button type="submit" className="btn btn-success mr-3 mt-3"><i class="fas fa-save"></i> Lưu</button>
                                 </div>
                             </div>
                             </form>
