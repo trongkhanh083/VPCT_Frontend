@@ -23,11 +23,13 @@ import Login_log from "./system/Login_log";
 import Usage_process from "./help/Usage_process";
 import Infor_software from "./help/Infor_software";
 import Forgot_password from "./account/Forgot_password";
+import AddProgram from "./action/AddProgram";
+import AddDuty from "./action/AddDuty";
 
 const Main = () => {
     return (
         <Routes>
-            <Route exact path="/" element={ <Login /> }></Route>
+            <Route exact path="/" element={ <Home /> }></Route>
             <Route exact path="/home" element={ <Home /> }></Route>
             <Route exact path="/login" element={ <Login /> }></Route>
             <Route exact path="/forgot_password" element={ <Forgot_password /> }></Route>
@@ -36,7 +38,7 @@ const Main = () => {
             <Route exact path="/statistical/program_report" element={ <Program_report /> }></Route>
             <Route exact path="/statistical/template_report" element={ <Template_report /> }></Route>
             <Route exact path="/statistical/mission_report" element={ <Mission_report /> }></Route>
-            <Route exact path="/statistical/mission_information" element={ <Mission_information /> }></Route>
+            <Route exact path="/statistical/mission_information" element={  <Mission_information /> }></Route>
             <Route exact path="/statistical/search_for_tasks" element={ <Search_for_tasks /> }></Route>
             <Route exact path="/category/expert" element={ <Expert /> }></Route>
             <Route exact path="/category/phase" element={ <Phase /> }></Route>
@@ -50,6 +52,8 @@ const Main = () => {
             <Route exact path="/system/login_log" element={ <Login_log /> }></Route>
             <Route exact path="/information/usage_process" element={ <Usage_process /> }></Route>
             <Route exact path="/information/infor_software" element={ <Infor_software /> }></Route>
+            <Route exact path="/action/addProgram" element={ <AddProgram /> }></Route>
+            <Route exact path="/action/addDuty" element={ <AddDuty /> }></Route>
         </Routes>
     )
 }

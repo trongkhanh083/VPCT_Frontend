@@ -19,15 +19,6 @@ export default class User_group_con extends Component {
                                     <a className="btn btn-success btn-sm mr-2" href="#">
                                     <i className="fas fa-plus" /> Thêm 
                                     </a>
-                                    <a className="btn btn-warning btn-sm mr-2" href="#">
-                                    <i className="fas fa-pencil-alt" /> Sửa
-                                    </a>
-                                    <a className="btn btn-danger btn-sm mr-2" href="#">
-                                    <i className="fas fa-trash" /> Xóa
-                                    </a>
-                                    <a className="btn btn-info btn-sm mr-2" href="#">
-                                    <i className="fas fa-redo"></i> Làm mới
-                                    </a>
                                 </td>
                             </div>
                             <div className="col-sm-6">
@@ -55,6 +46,7 @@ export default class User_group_con extends Component {
                                             <th></th>
                                             <th>Tên nhóm</th>
                                             <th>Mô tả nhóm</th>
+                                            <th></th>
                                         </tr>
                                         </thead>
 
@@ -68,116 +60,14 @@ export default class User_group_con extends Component {
                                             </td>
                                             <td></td>
                                             <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
                                             <td>
-                                                <div class="form-check text-center">
-                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                </div>
+                                                <a className="btn btn-warning btn-sm mr-2" href="#">
+                                                <i className="fas fa-pencil-alt" /> Sửa
+                                                </a>
+                                                <a className="btn btn-danger btn-sm mr-2" href="#">
+                                                <i className="fas fa-trash" /> Xóa
+                                                </a>
                                             </td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>
-                                                <div class="form-check text-center">
-                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>
-                                                <div class="form-check text-center">
-                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>
-                                                <div class="form-check text-center">
-                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>
-                                                <div class="form-check text-center">
-                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>
-                                                <div class="form-check text-center">
-                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>
-                                                <div class="form-check text-center">
-                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>
-                                                <div class="form-check text-center">
-                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>
-                                                <div class="form-check text-center">
-                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>11</td>
-                                            <td>
-                                                <div class="form-check text-center">
-                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>12</td>
-                                            <td>
-                                                <div class="form-check text-center">
-                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
                                         </tr>
                                         </tbody>
                                     </table>
