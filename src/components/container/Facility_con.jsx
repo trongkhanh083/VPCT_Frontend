@@ -28,7 +28,7 @@ export default class Facility_con extends Component {
                 <section className="content-header">
                     <div className="container-fluid">
                         <div className="row mb-2">
-                            <div className="col-sm-2">
+                            <div className="col-sm-3">
                                 <h5>Quản lý Cơ quan chủ trì</h5>
                             </div>
                             <div className="col-sm-4">
@@ -38,7 +38,7 @@ export default class Facility_con extends Component {
                                     </a>
                                 </td>
                             </div>
-                            <div className="col-sm-6">
+                            <div className="col-sm-5">
                             <ol className="breadcrumb float-sm-right">
                                 <li className="breadcrumb-item"><a href="/category/facility">Cơ quan chủ trì</a></li>
                                 <li className="breadcrumb-item active">Dữ liệu</li>
@@ -62,7 +62,7 @@ export default class Facility_con extends Component {
                                             <th>STT</th>
                                             <th></th>
                                             <th>Tên cơ quan</th>
-                                            <th>Tên đơn vị chủ quản</th>
+                                            <th>Đơn vị chủ quản</th>
                                             <th>Địa chỉ</th>
                                             <th>Số điện thoại</th>
                                             <th>Số Fax</th>
@@ -80,7 +80,7 @@ export default class Facility_con extends Component {
                                                                 </div>
                                                             </td>
                                                             <td>{item.name}</td>
-                                                            <td>ten don vi chu quan</td>
+                                                            <td>{item.donViChuQuanId}</td>
                                                             {/* <td></td> */}
                                                             <td>{item.address}</td>
                                                             <td>{item.phoneNumber}</td>

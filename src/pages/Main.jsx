@@ -17,9 +17,7 @@ import Specialized from "./category/Specialized";
 import Manager from "./category/Manager";
 import Facility from "./category/Facility";
 import User from "./system/User";
-import User_group from "./system/User_group";
 import System_configuration from "./system/System_configuration";
-import Login_log from "./system/Login_log";
 import Usage_process from "./help/Usage_process";
 import Infor_software from "./help/Infor_software";
 import Forgot_password from "./account/Forgot_password";
@@ -47,9 +45,7 @@ const Main = () => {
             <Route exact path="/category/manager" element={ <Manager /> }></Route>
             <Route exact path="/category/facility" element={ <Facility /> }></Route>
             <Route exact path="/system/user" element={ <User /> }></Route>
-            <Route exact path="/system/user_group" element={ <User_group /> }></Route>
             <Route exact path="/system/configuration" element={ <System_configuration /> }></Route>
-            <Route exact path="/system/login_log" element={ <Login_log /> }></Route>
             <Route exact path="/information/usage_process" element={ <Usage_process /> }></Route>
             <Route exact path="/information/infor_software" element={ <Infor_software /> }></Route>
             <Route exact path="/action/addProgram" element={ <AddProgram /> }></Route>

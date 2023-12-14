@@ -88,26 +88,27 @@ export default class Dashboard extends Component {
                                 <div className="col-12">
                                     <div className="card">
                                         <div className="card-body">
-                                            <table
-                                                id="example1"
-                                                className="table table-responsive table-bordered table-striped"
-                                            >
+                                        <table
+                                            id="example1"
+                                            className="table table-responsive table-bordered table-striped"
+                                            style={{ width: '100%' }}
+                                        >
                                                 <thead>
                                                     <tr>
-                                                        <th>STT</th>
-                                                        <th></th>
-                                                        <th>Mã số</th>
-                                                        <th>Tên chương trình</th>
-                                                        <th>Chủ nhiệm CT</th>
-                                                        <th>Phó chủ nhiệm CT</th>
-                                                        <th>Ủy viên, Thư ký khoa học</th>
-                                                        <th>Ủy viên</th>
-                                                        <th>Ủy viên</th>
-                                                        <th>Ủy viên</th>
-                                                        <th>Thư ký hành chính</th>
-                                                        <th>Xuất bản</th>
-                                                        <th></th>
-                                                        <th></th>
+                                                        <th style={{ width: '5%' }}>STT</th>
+                                                        <th style={{ width: '5%' }}></th>
+                                                        <th style={{ width: '5%' }}>Mã số</th>
+                                                        <th style={{ width: '20%' }}>Tên chương trình</th>
+                                                        <th style={{ width: '10%' }}>Chủ nhiệm CT</th>
+                                                        <th style={{ width: '10%' }}>Phó chủ nhiệm CT</th>
+                                                        <th style={{ width: '10%' }}>Ủy viên, Thư ký khoa học</th>
+                                                        <th style={{ width: '10%' }}>Ủy viên</th>
+                                                        <th style={{ width: '10%' }}>Ủy viên</th>
+                                                        <th style={{ width: '10%' }}>Ủy viên</th>
+                                                        <th style={{ width: '10%' }}>Thư ký hành chính</th>
+                                                        <th style={{ width: '5%' }}>Xuất bản</th>
+                                                        <th style={{ width: '5%' }}></th>
+                                                        <th style={{ width: '10%' }}>Tải file</th>
                                                     </tr>
                                                 </thead>
 

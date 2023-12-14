@@ -102,7 +102,7 @@ export default class Table extends Component {
                                         <tr>
                                             <th>STT</th>
                                             <th>Mã số NV</th>
-                                            <th>Tên đề tài, dự án</th>
+                                            <th className='w-125'>Tên đề tài, dự án</th>
                                             <th>Chủ nhiệm</th>
                                             <th>Bắt đầu</th>
                                             <th>Kết thúc</th>
@@ -124,7 +124,7 @@ export default class Table extends Component {
                                                             <td>{key + 1}</td>
                                                             
                                                             <td>{item.maNhiemVu}</td>
-                                                            <td>{item.name}</td>
+                                                            <td className='w-125'>{item.name}</td>
                                                             <td>{item.president}</td>
                                                             <td>{item.startDate_Month} / {item.startDate_Year}</td>
                                                             <td>{item.endDate_Month} / {item.endDate_Year}</td>
