@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import '../../css/table.css';
+import {getCoquanquanlyAPI} from "../../../src/api/todos";
 
-import {getChuyennganhAPI, getLinhvuckhoahocAPI} from "../../../src/api/todos";
-
-export default class Specialized_con extends Component {
+export default class ManageAgency_con extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            chuyennganhs: [],
-            linhvucs: [],
+            coquanquanlies: [],
         };
     }
 
@@ -17,12 +15,11 @@ export default class Specialized_con extends Component {
     }
 
     fetchData = async () => {
-        const chuyennganhs = await getChuyennganhAPI();
-        const linhvucs = await getLinhvuckhoahocAPI();
-        this.setState({ chuyennganhs, linhvucs });
+        const coquanquanlies = await getCoquanquanlyAPI();
+        this.setState({ coquanquanlies });
     };
     render() {
-        const { chuyennganhs, linhvucs } = this.state;
+        const { coquanquanlies } = this.state;
         return (
             <div>
                 {/* Content Wrapper. Contains page content */}
@@ -32,7 +29,7 @@ export default class Specialized_con extends Component {
                     <div className="container-fluid">
                         <div className="row mb-2">
                             <div className="col-sm-2">
-                                <h5>Quản lý Chuyên ngành</h5>
+                                <h5>Quản lý Cơ quan quản lý</h5>
                             </div>
                             <div className="col-sm-4">
                                 <td className="project-actions text-right">
@@ -43,7 +40,7 @@ export default class Specialized_con extends Component {
                             </div>
                             <div className="col-sm-6">
                             <ol className="breadcrumb float-sm-right">
-                                <li className="breadcrumb-item"><a href="/category/specilized">Chuyên ngành</a></li>
+                                <li className="breadcrumb-item"><a href="/category/manage-agency">Cơ quan quản lý</a></li>
                                 <li className="breadcrumb-item active">Dữ liệu</li>
                             </ol>
                             </div>
@@ -64,23 +61,27 @@ export default class Specialized_con extends Component {
                                         <tr>
                                             <th>STT</th>
                                             <th></th>
-                                            <th>Tên chuyên ngành</th>
-                                            <th>Tên lĩnh vực khoa học</th>
+                                            <th>Tên cơ quan</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Số Fax</th>
                                             <th></th>
                                         </tr>
                                         </thead>
 
                                         <tbody>
-                                        {chuyennganhs?.map((item, key) => (
+                                        {coquanquanlies?.map((item, key) => (
                                                         <tr key={key}>
                                                             <td>{key + 1}</td>
                                                             <td>
-                                                            <div class="form-check text-center">
+                                                                <div class="form-check text-center">
                                                                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
                                                                 </div>
                                                             </td>
                                                             <td>{item.name}</td>
-                                                            <td>{linhvucs?.map((i, k) => k === item.linhVucId && i.name)}</td>
+                                                            <td>{item.address}</td>
+                                                            <td>{item.phoneNumber}</td>
+                                                            <td>{item.fax}</td>
                                                             <td>
                                                                 <a className="btn btn-warning btn-sm mr-2" href="#">
                                                                 <i className="fas fa-pencil-alt" /> Sửa

@@ -38,14 +38,21 @@ export default class Statistic extends Component {
       const productData3 = await getProductPostDTO(this.state.selectedLoaiCT);
       const productData4 = await getProductOtherDTO(this.state.selectedLoaiCT);
 
-      // Combine the data from all API calls
-      const combinedData = [...productData2, ...productData3, ...productData4];
+      // Merge the data from all API calls
+      const mergedData = productData2.map((item) => {
+        const postDTO = productData3.find((post) => post.maChuongTrinh === item.maChuongTrinh);
+        const otherDTO = productData4.find((other) => other.maChuongTrinh === item.maChuongTrinh);
+        return {
+          ...item,
+          loaiSanPhamCounts: [
+            ...item.loaiSanPhamCounts,
+            ...(postDTO ? postDTO.loaiSanPhamCounts : []),
+          ],
+          count: otherDTO ? otherDTO.count : 0,
+        };
+      });
 
-      this.setState({ productData: combinedData, showTable: true });
-    }
-    else if (this.state.selectedLoaiCT && this.state.selectedReportType === "4") {
-      const productData = await getProductIIDTO(this.state.selectedLoaiCT);
-      this.setState({ productData, showTable: true });
+      this.setState({ productData: mergedData, showTable: true });
     }
   };
   render() {

@@ -1,11 +1,11 @@
 import React from 'react';
 
 const ProductTableIII = ({ productData }) => {
-  // Extract all unique loaiSanPhamName values
-  const allLoaiSanPhamNames = productData.reduce((acc, item) => {
-    item.sanPham_CountDTOs?.forEach((product) => {
-      if (!acc.includes(product.loaiSanPhamName)) {
-        acc.push(product.loaiSanPhamName);
+  // Extract all unique loaiSp values
+  const allLoaiSanPhamNames = productData?.reduce((acc, curr) => {
+    curr.loaiSanPhamCounts.forEach((item) => {
+      if (!acc.includes(item.loaiSp)) {
+        acc.push(item.loaiSp);
       }
     });
     return acc;
@@ -26,34 +26,30 @@ const ProductTableIII = ({ productData }) => {
       </div>
 
       <div style={{ textAlign: 'center', width: '100%', margin: '0 auto', clear: 'both' }}>
-      <table style={{ margin: 'auto' }}>
-        <thead>
-          <tr>
-            <th style={{ fontWeight: 'bold', textAlign: 'center', padding: '8px' }}>Mã CT</th>
-            {allLoaiSanPhamNames.map((loaiSanPhamName, index) => (
-              <th style={{ fontWeight: 'bold', textAlign: 'center', padding: '8px' }} key={index}>{loaiSanPhamName}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {productData.map((item, index) => (
-            <tr key={index}>
-              <td style={{ textAlign: 'center', padding: '8px' }}>{item.maChuongTrinh}</td>
-              {allLoaiSanPhamNames.map((loaiSanPhamName, index) => {
-                if (loaiSanPhamName === 'Other Products Count') {
-                  const otherProduct = productData?.find((p) => p.maChuongTrinh === item.maChuongTrinh);
-                  return <td key={index} style={{ textAlign: 'center', padding: '8px' }}>{otherProduct ? otherProduct.otherProductsCount : 0}</td>;
-                } else {
-                  const product = item.sanPham_CountDTOs?.find((p) => p.loaiSanPhamName === loaiSanPhamName);
-                  return <td key={index} style={{ textAlign: 'center', padding: '8px' }}>{product ? product.count : 0}</td>;
-                }
-              })}
+        <table style={{ margin: 'auto' }}>
+          <thead>
+            <tr>
+              <th style={{ fontWeight: 'bold', textAlign: 'center', padding: '8px' }}>MaCt</th>
+              {allLoaiSanPhamNames?.map((loaiSp, index) => (
+                <th style={{ fontWeight: 'bold', textAlign: 'center', padding: '8px' }} key={index}>{loaiSp}</th>
+              ))}
+              <th style={{ fontWeight: 'bold', textAlign: 'center', padding: '8px' }}>Sản phẩm khác</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {productData?.map((data, index) => (
+              <tr key={index}>
+                <td style={{ textAlign: 'center', padding: '8px' }}>{data.maChuongTrinh}</td>
+                {allLoaiSanPhamNames?.map((loaiSp, index) => {
+                  const product = data.loaiSanPhamCounts.find((item) => item.loaiSp === loaiSp);
+                  return <td style={{ textAlign: 'center', padding: '8px' }} key={index}>{product ? product.count : 0}</td>;
+                })}
+                <td style={{ textAlign: 'center', padding: '8px' }}>{data.count}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-      
     </div>
   );
 };

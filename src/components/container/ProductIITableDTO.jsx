@@ -1,11 +1,11 @@
 import React from 'react';
 
 const ProductTableII = ({ productData }) => {
-  // Extract all unique loaiSanPhamName values
-  const allLoaiSanPhamNames = productData.reduce((acc, item) => {
-    item.sanPham_CountDTOs.forEach((product) => {
-      if (!acc.includes(product.loaiSanPhamName)) {
-        acc.push(product.loaiSanPhamName);
+  // Extract all unique loaiSp values
+  const allLoaiSanPhamNames = productData?.reduce((acc, item) => {
+    item.loaiSanPhamCounts.forEach((product) => {
+      if (!acc.includes(product.loaiSp)) {
+        acc.push(product.loaiSp);
       }
     });
     return acc;
@@ -29,17 +29,17 @@ const ProductTableII = ({ productData }) => {
           <thead>
             <tr>
               <th style={{ fontWeight: 'bold', textAlign: 'center', padding: '8px' }}>Mã CT</th>
-              {allLoaiSanPhamNames.map((loaiSanPhamName, index) => (
-                <th style={{ fontWeight: 'bold', textAlign: 'center', padding: '8px' }} key={index}>{loaiSanPhamName}</th>
+              {allLoaiSanPhamNames?.map((loaiSp, index) => (
+                <th style={{ fontWeight: 'bold', textAlign: 'center', padding: '8px' }} key={index}>{loaiSp}</th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {productData.map((item, index) => (
+            {productData?.map((item, index) => (
               <tr key={index}>
                 <td style={{ textAlign: 'center', padding: '8px' }}>{item.maChuongTrinh}</td>
-                {allLoaiSanPhamNames.map((loaiSanPhamName, index) => {
-                  const product = item.sanPham_CountDTOs?.find((p) => p.loaiSanPhamName === loaiSanPhamName);
+                {allLoaiSanPhamNames?.map((loaiSp, index) => {
+                  const product = item.loaiSanPhamCounts?.find((p) => p.loaiSp === loaiSp);
                   return <td style={{ textAlign: 'center', padding: '8px' }} key={index}>{product ? product.count : 0}</td>;
                 })}
               </tr>

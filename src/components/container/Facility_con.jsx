@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import '../../css/table.css';
-import {getCoquanchutriAPI} from "../../../src/api/todos";
+import {getCoquanchutriAPI, getDonvichuquanAPI} from "../../../src/api/todos";
 export default class Facility_con extends Component {
     constructor(props) {
         super(props);
         this.state = {
             coquanchutris: [],
+            donvichuquans: [],
         };
     }
 
@@ -15,10 +16,11 @@ export default class Facility_con extends Component {
 
     fetchData = async () => {
         const coquanchutris = await getCoquanchutriAPI();
-        this.setState({ coquanchutris });
+        const donvichuquans = await getDonvichuquanAPI();
+        this.setState({ coquanchutris, donvichuquans });
     };
     render() {
-        const { coquanchutris } = this.state;
+        const { coquanchutris, donvichuquans } = this.state;
     
         return (
             <div>
@@ -62,7 +64,7 @@ export default class Facility_con extends Component {
                                             <th>STT</th>
                                             <th></th>
                                             <th>Tên cơ quan</th>
-                                            <th>Đơn vị chủ quản</th>
+                                            <th>Tên đơn vị chủ quản</th>
                                             <th>Địa chỉ</th>
                                             <th>Số điện thoại</th>
                                             <th>Số Fax</th>
@@ -80,12 +82,9 @@ export default class Facility_con extends Component {
                                                                 </div>
                                                             </td>
                                                             <td>{item.name}</td>
-                                                            <td>{item.donViChuQuanId}</td>
-                                                            {/* <td></td> */}
+                                                            <td>{donvichuquans?.map((i, k) => k === item.donViChuQuanId - 1 && i.name)}</td>
                                                             <td>{item.address}</td>
                                                             <td>{item.phoneNumber}</td>
-                                                            {/* <td>{item.chucVu}</td> */}
-                                                            {/* <td>{item.hocVi}</td> */}
                                                             <td>{item.fax}</td>
                                                             <td>
                                                                 <a className="btn btn-warning btn-sm mb-1" href="#">

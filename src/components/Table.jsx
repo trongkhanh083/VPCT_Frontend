@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { getNhiemvuAPI, delNhiemVusAPI } from "../../src/api/todos";
+import { getNhiemvuAPI, delNhiemVusAPI, getChuyengiasAPI } from "../../src/api/todos";
 
 export default class Table extends Component {
     constructor(props) {
         super(props);
         this.state = {
             nhiemvus: [],
+            chuyengias: [],
         };
     }
 
@@ -15,7 +16,8 @@ export default class Table extends Component {
 
     fetchData = async () => {
         const nhiemvus = await getNhiemvuAPI();
-        this.setState({ nhiemvus });
+        const chuyengias = await getChuyengiasAPI();
+        this.setState({ nhiemvus, chuyengias });
     };
 
     delNhiemVu = async (id) => {
@@ -26,7 +28,7 @@ export default class Table extends Component {
     };
 
     render() {
-        const { nhiemvus } = this.state;
+        const { nhiemvus, chuyengias } = this.state;
         return (
             <div>
                 {/* Content Wrapper. Contains page content */}
@@ -125,7 +127,7 @@ export default class Table extends Component {
                                                             
                                                             <td>{item.maNhiemVu}</td>
                                                             <td className='w-125'>{item.name}</td>
-                                                            <td>{item.president}</td>
+                                                            <td>{chuyengias?.map((i, k) => k === item.presidentId && i.name)}</td>
                                                             <td>{item.startDate_Month} / {item.startDate_Year}</td>
                                                             <td>{item.endDate_Month} / {item.endDate_Year}</td>
                                                             <td>{item.ngiemThu_Month} / {item.ngiemThu_Year}</td>

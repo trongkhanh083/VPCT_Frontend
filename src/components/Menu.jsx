@@ -138,6 +138,66 @@ export default class Menu extends Component {
                                 <p>Cơ quan chủ trì</p>
                                 </a>
                             </li>
+                            <li className="nav-item">
+                                <a href="/category/academic" className="nav-link">
+                                <i className="far fa-circle nav-icon" />
+                                <p>Học hàm</p>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/category/degree" className="nav-link">
+                                <i className="far fa-circle nav-icon" />
+                                <p>Học vị</p>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/category/title" className="nav-link">
+                                <i className="far fa-circle nav-icon" />
+                                <p>Chức danh</p>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/category/position" className="nav-link">
+                                <i className="far fa-circle nav-icon" />
+                                <p>Chức vụ</p>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/category/product-form" className="nav-link">
+                                <i className="far fa-circle nav-icon" />
+                                <p>Dạng sản phẩm</p>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/category/product-type" className="nav-link">
+                                <i className="far fa-circle nav-icon" />
+                                <p>Loại sản phẩm</p>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/category/program-type" className="nav-link">
+                                <i className="far fa-circle nav-icon" />
+                                <p>Loại chương trình</p>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/category/manage-agency" className="nav-link">
+                                <i className="far fa-circle nav-icon" />
+                                <p>Cơ quan quản lý</p>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/category/dispatch-type" className="nav-link">
+                                <i className="far fa-circle nav-icon" />
+                                <p>Loại công văn</p>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/category/file-type" className="nav-link">
+                                <i className="far fa-circle nav-icon" />
+                                <p>Loại file đính kèm nhiệm vụ</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li className="li-nav-menu-green nav-item">

@@ -2,7 +2,6 @@ import axiosClient from './axiosClient';
 
 const END_POINT = {
     CHUONGTRINHS: "ChuongTrinhs",
-    LOAICHUONGTRINH: "LoaiChuongTrinhs",
     LOAINHIEMVU: "Enums/LoaiNhiemVuOptions",
     TRANGTHAINHIEMVU: "Enums/TrangThaiNhiemVuOptions",
     NHIEMVUS: "NhiemVus",
@@ -12,6 +11,16 @@ const END_POINT = {
     CHUYENNGANH: "ChuyenNganhs",
     DONVICHUQUAN: "DonViChuQuans",
     COQUANCHUTRI: "CoQuanChuTris",
+    HOCHAM: "HocHams",
+    HOCVI: "HocVis",
+    CHUCDANH: "ChucDanhs",
+    CHUCVU: "ChucVus",
+    DANGSANPHAM: "DangSanPhams",
+    LOAISANPHAM: "LoaiSanPhams",
+    LOAICHUONGTRINH: "LoaiChuongTrinhs",
+    COQUANQUANLY: "CoQuanQuanLies",
+    DOCTYPE: "DocTypes",
+    FILETYPE: "FileTypes",
     USERROLES: "UserRoles/GetUsersWithRoles",
     PRODUCTIDTO: "ChuongTrinhs/GetProduct_ICountByCategory",
     PRODUCTIIDTO: "ChuongTrinhs/GetProduct_IICountByCategory",
@@ -53,6 +62,46 @@ export const getCoquanchutriAPI = ()  => {
     return axiosClient.get(`${END_POINT.COQUANCHUTRI}`);
 }
 
+export const getHochamAPI = ()  => {
+    return axiosClient.get(`${END_POINT.HOCHAM}`);
+}
+
+export const getHocviAPI = ()  => {
+    return axiosClient.get(`${END_POINT.HOCVI}`);
+}
+
+export const getChucdanhAPI = ()  => {
+    return axiosClient.get(`${END_POINT.CHUCDANH}`);
+}
+
+export const getChucvuAPI = ()  => {
+    return axiosClient.get(`${END_POINT.CHUCVU}`);
+}
+
+export const getDangsanphamAPI = ()  => {
+    return axiosClient.get(`${END_POINT.DANGSANPHAM}`);
+}
+
+export const getLoaisanphamAPI = ()  => {
+    return axiosClient.get(`${END_POINT.LOAISANPHAM}`);
+}
+
+export const getTypeProgramsAPI = () => {
+    return axiosClient.get(`${END_POINT.LOAICHUONGTRINH}`);
+}
+
+export const getCoquanquanlyAPI = ()  => {
+    return axiosClient.get(`${END_POINT.COQUANQUANLY}`);
+}
+
+export const getFiletypeAPI = ()  => {
+    return axiosClient.get(`${END_POINT.FILETYPE}`);
+}
+
+export const getDoctypeAPI = ()  => {
+    return axiosClient.get(`${END_POINT.DOCTYPE}`);
+}
+
 export const getUsersAPI = ()  => {
     return axiosClient.get(`${END_POINT.USERROLES}`);
 }
@@ -65,8 +114,12 @@ export const addProgramsAPI = (chuongTrinh)  => {
     return axiosClient.post(`${END_POINT.CHUONGTRINHS}`, chuongTrinh);
 }
 
-export const getTypeProgramsAPI = () => {
-    return axiosClient.get(`${END_POINT.LOAICHUONGTRINH}`);
+export const editProgramsAPI = (id,chuongTrinh)  => {
+    return axiosClient.put(`${END_POINT.CHUONGTRINHS}/${id}`, chuongTrinh);
+}
+
+export const getProgramAPI = (id)  => {
+    return axiosClient.get(`${END_POINT.CHUONGTRINHS}/${id}`);
 }
 
 export const delNhiemVusAPI = (id)  => {
