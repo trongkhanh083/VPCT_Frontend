@@ -171,11 +171,13 @@ export default class Dashboard extends Component {
                               <td className="project-actions text-right">
                                 <a
                                   className="btn btn-info btn-sm mb-1"
-                                  href="#"
+                                  href={`/search/chuyengia/${item.id}`}
                                 >
                                   <i className="fas fa-pencil-alt" /> Chuyên gia
                                 </a>
-                                <a className="btn btn-success btn-sm" href="#">
+                                <a className="btn btn-success btn-sm" 
+                                  href={`/search/nhiemvu/${item.id}`}
+                                >
                                   <i className="fas fa-pencil-alt" /> Nhiệm vụ
                                 </a>
                               </td>

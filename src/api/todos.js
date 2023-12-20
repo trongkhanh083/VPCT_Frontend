@@ -158,14 +158,26 @@ export const getProductOtherDTO = (id)  => {
     return axiosClient.get(`${END_POINT.PRODUCTOTHERDTO}/${id}`);
 }
 
-// export const delTodosAPI = (id)  => {
-//     return axiosClient.delete(`${END_POINT.TODOS}/${id}`);
-// }
+export const editNhiemvusAPI = (id, nhiemVu)  => {
+    return axiosClient.put(`${END_POINT.NHIEMVUS}/${id}`, nhiemVu);
+}
 
-// export const addTodosAPI = (todo)  => {
-//     return axiosClient.post(`${END_POINT.TODOS}`, todo);
-// }
+export const getNhiemvusbyIdAPI = (id)  => {
+    return axiosClient.get(`${END_POINT.NHIEMVUS}/${id}`);
+}
 
-// export const  editTodosAPI = (todo)  => {
-//     return axiosClient.put(`${END_POINT.TODOS}`, todo);
-// }
+export const getChuyengiabyProgramsAPI = (id)  => {
+    return axiosClient.get(`${END_POINT.CHUYENGIAS}/${id}`);
+}
+
+export const getNhiemvubyProgramsAPI = (id)  => {
+    return axiosClient.get(`${END_POINT.NHIEMVUS}/${id}`);
+}
+
+export const getCoquanquanlyBychuongtrinh = (id)  => {
+    return axiosClient.get(`${END_POINT.COQUANQUANLY}/${id}`);
+}
+
+export const delChuyengiaAPI = (id)  => {
+    return axiosClient.delete(`${END_POINT.CHUYENGIAS}/${id}`);
+}

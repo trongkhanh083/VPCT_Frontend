@@ -83,7 +83,7 @@ export default class Table extends Component {
                             </div>
                             <div className="col-sm-6">
                             <ol className="breadcrumb float-sm-right">
-                                <li className="breadcrumb-item"><a href="/home">Nhiệm vụ</a></li>
+                                <li className="breadcrumb-item"><a href="/duty">Nhiệm vụ</a></li>
                                 <li className="breadcrumb-item active">Dữ liệu</li>
                             </ol>
                             </div>
@@ -145,7 +145,7 @@ export default class Table extends Component {
                                                                 </div>
                                                             </td>
                                                             <td>
-                                                                <a className="btn btn-warning btn-sm mb-1" href="#">
+                                                                <a className="btn btn-warning btn-sm mb-1" href={`/action/editDuty/${item.id}`}>
                                                                 <i className="fas fa-pencil-alt" /> Sửa
                                                                 </a>
                                                                 <button 

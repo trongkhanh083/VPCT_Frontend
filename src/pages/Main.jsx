@@ -34,11 +34,15 @@ import Forgot_password from "./account/Forgot_password";
 import AddProgram from "./action/AddProgram";
 import AddDuty from "./action/AddDuty";
 import EditProgram from "./action/EditProgram";
+import EditDuty from "./action/EditDuty";
+import SChuyengia from "./search/ChuyenGia";
+import SNhiemvu from "./search/NhiemVu";
+import SCoquanquanly from "./search/CoQuanQuanLy";
 
 const Main = () => {
     return (
         <Routes>
-            <Route exact path="/" element={ <Home /> }></Route>
+            <Route exact path="/" element={ <Login /> }></Route>
             <Route exact path="/home" element={ <Home /> }></Route>
             <Route exact path="/login" element={ <Login /> }></Route>
             <Route exact path="/forgot_password" element={ <Forgot_password /> }></Route>
@@ -72,6 +76,10 @@ const Main = () => {
             <Route exact path="/action/addProgram" element={ <AddProgram /> }></Route>
             <Route exact path="/action/addDuty" element={ <AddDuty /> }></Route>
             <Route path="/action/editProgram/:id" element={ <EditProgram /> }></Route>
+            <Route path="/action/editDuty/:id" element={ <EditDuty /> }></Route>
+            <Route path="/search/chuyengia/:id" element={ <SChuyengia /> }></Route>
+            <Route path="/search/nhiemvu/:id" element={ <SNhiemvu /> }></Route>
+            <Route path="/search/coquanquanly/:id" element={ <SCoquanquanly /> }></Route>
         </Routes>
     )
 }

@@ -26,7 +26,7 @@ export default class System_configuration_con extends Component {
                             </div>
                             <div className="col-sm-6">
                             <ol className="breadcrumb float-sm-right">
-                                <li className="breadcrumb-item"><a href="/system/user_group">Cấu hình</a></li>
+                                <li className="breadcrumb-item"><a href="/system/configuration">Cấu hình</a></li>
                                 <li className="breadcrumb-item active">Dữ liệu</li>
                             </ol>
                             </div>

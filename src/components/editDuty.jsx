@@ -1,102 +1,112 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import { addNhiemVusAPI, getTypeNhiemVusAPI, getStatusNhiemVusAPI, getProgramsAPI, getChuyengiasAPI } from "../../src/api/todos";
-import '../css/table.css';
+import {editNhiemvusAPI, getNhiemvusbyIdAPI, getTypeNhiemVusAPI, getStatusNhiemVusAPI, getProgramsAPI, getChuyengiasAPI} from "../../src/api/todos";
+import "../css/table.css";
 
-function AddDutyC() {
-    
-        const [showForm, setShowForm] = useState(true);
+function EditDutyC({ nhiemvuId }) {
 
-        const [loaiNhiemVuOptions, setLoaiNhiemVuOptions] = useState([]);
-        const [selectedLoaiNhiemVu, setSelectedLoaiNhiemVu] = useState('');
+    const [showForm, setShowForm] = useState(true);
 
-        const [statusNhiemVuOptions, setStatusNhiemVuOptions] = useState([]);
-        const [selectedStatusNhiemVu, setSelectedStatusNhiemVu] = useState('');
+    const [nhiemvu, setProgram] = useState({});
+    const [loaiNhiemVuOptions, setLoaiNhiemVuOptions] = useState([]);
+    const [selectedLoaiNhiemVu, setSelectedLoaiNhiemVu] = useState('');
 
-        const [chuongTrinhOptions, setChuongTrinhOptions] = useState([]);
-        const [selectedChuongTrinh, setSelectedChuongTrinh] = useState('');
+    const [statusNhiemVuOptions, setStatusNhiemVuOptions] = useState([]);
+    const [selectedStatusNhiemVu, setSelectedStatusNhiemVu] = useState('');
 
-        const [chuyenGiaOptions, setChuyenGiaOptions] = useState([]);
-        const [selectedChuyenGia, setSelectedChuyenGia] = useState('');
+    const [chuongTrinhOptions, setChuongTrinhOptions] = useState([]);
+    const [selectedChuongTrinh, setSelectedChuongTrinh] = useState('');
 
-        useEffect(() => {
-            async function fetchLoaiNhiemVuOptions() {
-                const options = await getTypeNhiemVusAPI();
-                setLoaiNhiemVuOptions(options);
-            }
-            fetchLoaiNhiemVuOptions();
-        }, []);
+    const [chuyenGiaOptions, setChuyenGiaOptions] = useState([]);
+    const [selectedChuyenGia, setSelectedChuyenGia] = useState('');
 
-        useEffect(() => {
-            async function fetchStatusNhiemVuOptions() {
-                const options = await getStatusNhiemVusAPI();
-                setStatusNhiemVuOptions(options);
-            }
-            fetchStatusNhiemVuOptions();
-        }, []);
-
-        useEffect(() => {
-            async function fetchChuongTrinhOptions() {
-                const options = await getProgramsAPI();
-                setChuongTrinhOptions(options);
-            }
-            fetchChuongTrinhOptions();
-        }, []);
-
-        useEffect(() => {
-            async function fetchChuyenGiaOptions() {
-                const options = await getChuyengiasAPI();
-                setChuyenGiaOptions(options);
-            }
-            fetchChuyenGiaOptions();
-        }, []);
-
-
-        const ShowForm = () => {
-            setShowForm(!showForm);
+    useEffect(() => {
+        async function fetchData() {
+        const nhiemvuData = await getNhiemvusbyIdAPI(nhiemvuId);
+        setProgram(nhiemvuData);
         }
+        fetchData();
+    }, [nhiemvuId]);
 
-        const navigate = useNavigate();
-
-        const addorEditTodo = async (event) => {
-            event.preventDefault();
-            const name = event.target[0].value;
-            const maNhiemVu = event.target[1].value;
-            const category = event.target[2].value;
-            const status = event.target[3].value;
-            const chuongTrinhId = event.target[4].value;
-            const presidentId = event.target[5].value;
-
-            await addNhiemVusAPI({
-                name: name,
-                maNhiemVu: maNhiemVu,
-                category: category,
-                status: status,
-                chuongTrinhId: chuongTrinhId,
-                presidentId: presidentId
-            });
-            //   fetchData();
-            navigate('/duty');
+    useEffect(() => {
+        async function fetchLoaiNhiemVuOptions() {
+            const options = await getTypeNhiemVusAPI();
+            setLoaiNhiemVuOptions(options);
         }
+        fetchLoaiNhiemVuOptions();
+    }, []);
 
-        const handleLoaiNhiemVuChange = (event) => {
-            setSelectedLoaiNhiemVu(event.target.value);
-        };
+    useEffect(() => {
+        async function fetchStatusNhiemVuOptions() {
+            const options = await getStatusNhiemVusAPI();
+            setStatusNhiemVuOptions(options);
+        }
+        fetchStatusNhiemVuOptions();
+    }, []);
 
-        const handleStatusNhiemVuChange = (event) => {
-            setSelectedStatusNhiemVu(event.target.value);
-        };
+    useEffect(() => {
+        async function fetchChuongTrinhOptions() {
+            const options = await getProgramsAPI();
+            setChuongTrinhOptions(options);
+        }
+        fetchChuongTrinhOptions();
+    }, []);
 
-        const handleChuongTrinhChange = (event) => {
-            setSelectedChuongTrinh(event.target.value);
-        };
+    useEffect(() => {
+        async function fetchChuyenGiaOptions() {
+            const options = await getChuyengiasAPI();
+            setChuyenGiaOptions(options);
+        }
+        fetchChuyenGiaOptions();
+    }, []);
 
-        const handleChuyenGiaChange = (event) => {
-            setSelectedChuyenGia(event.target.value);
-        };
 
-        return (
-            <div>
+    const saveChanges = async (event) => {
+        event.preventDefault();
+        const name = event.target[0].value;
+        const maNhiemVu = event.target[1].value;
+        const category = event.target[2].value;
+        const status = event.target[3].value;
+        const chuongTrinhId = event.target[4].value;
+        const presidentId = event.target[5].value;
+
+        await editNhiemvusAPI(nhiemvuId, {
+            id: nhiemvuId,
+            name: name,
+            maNhiemVu: maNhiemVu,
+            category: category,
+            status: status,
+            chuongTrinhId: chuongTrinhId,
+            presidentId: presidentId
+        });
+
+        navigate('/duty');
+    };
+
+    const handleLoaiNhiemVuChange = (event) => {
+        setSelectedLoaiNhiemVu(event.target.value);
+    };
+
+    const handleStatusNhiemVuChange = (event) => {
+        setSelectedStatusNhiemVu(event.target.value);
+    };
+
+    const handleChuongTrinhChange = (event) => {
+        setSelectedChuongTrinh(event.target.value);
+    };
+
+    const handleChuyenGiaChange = (event) => {
+        setSelectedChuyenGia(event.target.value);
+    };
+
+    const ShowForm = () => {
+        setShowForm(!showForm);
+    }
+
+    const navigate = useNavigate();
+
+    return (
+        <div>
                 {/* Content Wrapper. Contains page content */}
                 <div className="content-wrapper">
                 {/* Content Header (Page header) */}
@@ -105,24 +115,24 @@ function AddDutyC() {
                         
                         <div className="row mb-2">
                             <div className="col-sm-2">
-                                <h5>Thêm nhiệm vụ</h5>
+                                <h5>Sửa nhiệm vụ</h5>
                             </div>
                             <div className="col-sm-8">
                                 <td className="project-actions text-right">
-                                    <a className="btn btn-success btn-sm mr-2" href="#" onClick={ShowForm}>
-                                    <i className="fas fa-plus" /> Thêm
+                                    <a className="btn btn-warning btn-sm mr-2" href="#" onClick={ShowForm}>
+                                    <i className="fas fa-plus" /> Sửa
                                     </a>
                                 </td>
 
                                 {showForm && (
                                     <div>
-                                        <form onSubmit={addorEditTodo}>
+                                        <form onSubmit={saveChanges}>
                                             <div className="row bg-gradient-light rounded border border-light shadow">
                                                 <div className="col-sm-3 mt-5">
                                                     <label className="font-weight-normal" for="reportType"><b>Tên nhiệm vụ</b><p className="text-danger d-inline">(*)</p></label>
                                                 </div>
                                                 <div className="col-sm-9 mt-5">
-                                                    <input className="form-control rounded" type="text" name="name" id="name" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+                                                    <input value={nhiemvu.name} className="form-control rounded" type="text" name="name" id="name" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
                                                     <br />
                                                 </div>
 
@@ -130,7 +140,7 @@ function AddDutyC() {
                                                     <label className="font-weight-normal" for="reportType"><b>Mã nhiệm vụ</b><p className="text-danger d-inline">(*)</p></label>
                                                 </div>
                                                 <div className="col-sm-9 mt-4">
-                                                    <input className="form-control rounded" type="text" name="maNhiemVu" id="maNhiemVu" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+                                                    <input value={nhiemvu.maNhiemVu} className="form-control rounded" type="text" name="maNhiemVu" id="maNhiemVu" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
                                                     <br />
                                                 </div>
                                             
@@ -224,7 +234,7 @@ function AddDutyC() {
                 </div>
                 {/* /.content-wrapper */}
             </div>
-        );
+    );
 }
 
-export default AddDutyC;
+export default EditDutyC;

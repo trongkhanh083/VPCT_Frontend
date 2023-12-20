@@ -12,10 +12,10 @@ export default class Header extends Component {
                         <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
                         </li>
                         <li className="nav-item d-none d-sm-inline-block">
-                        <a href="/home" className="nav-link font-weight-bold">Chương trình</a>
+                        <a href="/home" className="nav-link">Chương trình</a>
                         </li>
                         <li className="nav-item d-none d-sm-inline-block">
-                        <a href="/duty" className="nav-link font-weight-bold">Nhiệm vụ KH&CN</a>
+                        <a href="/duty" className="nav-link">Nhiệm vụ KH&CN</a>
                         </li>
                     </ul>
                     {/* Right navbar links */}

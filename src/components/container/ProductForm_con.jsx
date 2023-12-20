@@ -79,7 +79,7 @@ export default class ProductForm_con extends Component {
                                                             <td>{item.name}</td>
                                                             <td>{item.moTa}</td>
                                                             <td>
-                                                                <a className="btn btn-warning btn-sm mr-2" href="#">
+                                                                <a className="btn btn-warning btn-sm mb-1" href="#">
                                                                 <i className="fas fa-pencil-alt" /> Sửa
                                                                 </a>
                                                                 <a className="btn btn-danger btn-sm" href="#">

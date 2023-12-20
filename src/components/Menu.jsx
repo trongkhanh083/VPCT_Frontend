@@ -6,7 +6,7 @@ export default class Menu extends Component {
     return (
         <div>
             {/* Main Sidebar Container */}
-            <aside className="main-sidebar sidebar-light-primary sidebar-menu bg-light">
+            <aside className="main-sidebar sidebar-dark-primary sidebar-menu bg-dark">
                 {/* Brand Logo */}
                 <a href="/home" className="brand-link">
                 <img src="https://vnu.edu.vn/upload/2019/06/24238/image/VNU-UET%20logo.jpg" alt="Logo" className="brand-image img-circle elevation-3" style={{opacity: '8'}} />
@@ -34,7 +34,7 @@ export default class Menu extends Component {
                     <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     {/* Add icons to the links using the .nav-icon class
                     with font-awesome or any other icon font library */}
-                        <li className="li-nav-menu-green nav-item">
+                        <li className="li-nav-menu-light nav-item">
                             <a href="/home" className="nav-link ">
                             <i className="nav-icon fas fa-tachometer-alt" />
                             <p>
@@ -43,7 +43,7 @@ export default class Menu extends Component {
                             </p>
                             </a>
                         </li>
-                        <li className=" li-nav-menu-green nav-item">
+                        <li className=" li-nav-menu-light nav-item">
                             <a href="/duty" className="nav-link">
                             <i className="nav-icon fas fa-th" />
                             <p>
@@ -52,7 +52,7 @@ export default class Menu extends Component {
                             </a>
                         </li>
 
-                    <li className="li-nav-menu-green nav-item">
+                    <li className="li-nav-menu-light nav-item">
                         <a class="nav-link " href="#submenu2" data-toggle="collapse" data-target="#submenu2">  
                         <i className="nav-icon fas fa-chart-pie" />
                         <p>
@@ -93,7 +93,7 @@ export default class Menu extends Component {
                             </li>
                         </ul>
                     </li>
-                    <li className="li-nav-menu-green nav-item">
+                    <li className="li-nav-menu-light nav-item">
                     <a class="nav-link " href="#submenu3" data-toggle="collapse" data-target="#submenu3">     
                         <i className="nav-icon fas fa-copy" />
                         <p>
@@ -200,7 +200,7 @@ export default class Menu extends Component {
                             </li>
                         </ul>
                     </li>
-                    <li className="li-nav-menu-green nav-item">
+                    <li className="li-nav-menu-light nav-item">
                     <a class="nav-link " href="#submenu4" data-toggle="collapse" data-target="#submenu4">   
                         <i className="nav-icon fas fa-edit" />
                         <p>
@@ -223,7 +223,7 @@ export default class Menu extends Component {
                             </li>
                         </ul>
                     </li>
-                    <li className="li-nav-menu-green nav-item">
+                    <li className="li-nav-menu-light nav-item">
                     <a class="nav-link " href="#submenu5" data-toggle="collapse" data-target="#submenu5">   
                         <i className="nav-icon far fa-plus-square" />
                         <p>

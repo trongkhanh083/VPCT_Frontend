@@ -17,6 +17,9 @@ function EditProgramC({ programId }) {
       const [selectedPhoChuNhiem, setSelectedPhoChuNhiem] = useState('');
       const [selectedThuKyKhoaHoc, setSelectedThuKyKhoaHoc] = useState('');
       const [selectedThuKyHanhChinh, setSelectedThuKyHanhChinh] = useState('');
+      const [selectedUyVien1, setSelectedUyVien1] = useState('');
+      const [selectedUyVien2, setSelectedUyVien2] = useState('');
+      const [selectedUyVien3, setSelectedUyVien3] = useState('');
 
       useEffect(() => {
         async function fetchData() {
@@ -59,6 +62,18 @@ function EditProgramC({ programId }) {
           setSelectedThuKyHanhChinh(event.target.value);
       };
 
+      const handleUyVien1Change = (event) => {
+        setSelectedUyVien1(event.target.value);
+      };
+
+    const handleUyVien2Change = (event) => {
+        setSelectedUyVien2(event.target.value);
+      };
+
+    const handleUyVien3Change = (event) => {
+        setSelectedUyVien3(event.target.value);
+      };
+
       const navigate = useNavigate();
 
       const saveChanges = async (event) => {
@@ -69,7 +84,10 @@ function EditProgramC({ programId }) {
         const president = event.target[3].value;
         const vicePresident = event.target[4].value;
         const admin_Secretary = event.target[5].value;
-        const member_Secretary = event.target[6].value;
+        const member1 = event.target[6].value;
+        const member2 = event.target[7].value;
+        const member3 = event.target[8].value;
+        const member_Secretary = event.target[9].value;
 
         await editProgramsAPI(programId, {
           id: programId,
@@ -79,6 +97,9 @@ function EditProgramC({ programId }) {
           president: president,
           vicePresident: vicePresident,
           admin_Secretary: admin_Secretary,
+          member1: member1,
+          member2: member2,
+          member3: member3,
           member_Secretary: member_Secretary
         });
 
@@ -111,13 +132,27 @@ function EditProgramC({ programId }) {
                             {showForm && (
                                 <div>
                                     <form onSubmit={saveChanges}>
-                                        <div className="row">
+                                        <div className="row bg-gradient-light rounded border border-light shadow">
                                             <div className="col-sm-3 mt-4">
+                                            </div>
+                                            <div className="col-sm-9 mt-4">
+                                            <div >
+                                                <ol className="breadcrumb float-sm-left">
+                                                    <li className="breadcrumb-item"><a href={`/search/chuyengia/${program.id}`}>Chuyên gia thuộc chương trình</a></li>
+                                                    <li className="breadcrumb-item active"> <a href={`/search/nhiemvu/${program.id}`}> Nhiệm vụ thuộc chương trình</a></li>
+                                                    <li className="breadcrumb-item active"><a href={`/search/coquanquanly/${program.id}`}> Đơn vị quản lí </a> </li>
+                                                    
+                                                </ol>
+                                            </div>
+                                            <br />
+                                        </div>
+
+                                            <div className="col-sm-3 mt-5">
                                                 <div className="input-group">
                                                         <label className="font-weight-normal" for="reportType"><b>Loại CT</b><p className="text-danger d-inline">(*)</p></label>
                                                     </div>
                                                 </div>
-                                                <div className="col-sm-9 mt-4">
+                                                <div className="col-sm-9 mt-5">
                                                     <select value={selectedLoaiChuongTrinh} onChange={handleLoaiChuongTrinhChange} className="custom-select option-select">
                                                         {loaiChuongTrinhOptions?.map((option) => (
                                                         <option key={option.id} value={option.id}>
@@ -196,6 +231,54 @@ function EditProgramC({ programId }) {
 
                                             <div className="col-sm-3 mt-4">
                                                 <div className="input-group">
+                                                    <label className="font-weight-normal" for="reportType"><b>Ủy viên</b></label>
+                                                    </div>
+                                                </div>
+                                                        <div className="col-sm-9 mt-4">
+                                                                <select value={selectedUyVien1} onChange={handleUyVien1Change} className="custom-select option-select">
+                                                                    {chuongTrinhOptions?.map((option) => (
+                                                                    <option key={option.id} value={option.member1}>
+                                                                        {option.member1}
+                                                                    </option>
+                                                                    ))}
+                                                                </select>
+                                                            <br />
+                                                        </div>
+                                                        
+                                                        <div className="col-sm-3 mt-4">
+                                                            <div className="input-group">
+                                                                    <label className="font-weight-normal" for="reportType"><b>Ủy viên</b></label>
+                                                                </div>
+                                                            </div>
+                                                        <div className="col-sm-9 mt-4">
+                                                                <select value={selectedUyVien2} onChange={handleUyVien2Change} className="custom-select option-select">
+                                                                    {chuongTrinhOptions?.map((option) => (
+                                                                    <option key={option.id} value={option.member2}>
+                                                                        {option.member2}
+                                                                    </option>
+                                                                    ))}
+                                                                </select>
+                                                            <br />
+                                                        </div>
+
+                                                        <div className="col-sm-3 mt-4">
+                                                            <div className="input-group">
+                                                                    <label className="font-weight-normal" for="reportType"><b>Ủy viên</b></label>
+                                                                </div>
+                                                            </div>
+                                                        <div className="col-sm-9 mt-4">
+                                                                <select value={selectedUyVien3} onChange={handleUyVien3Change} className="custom-select option-select">
+                                                                    {chuongTrinhOptions?.map((option) => (
+                                                                    <option key={option.id} value={option.member3}>
+                                                                        {option.member3}
+                                                                    </option>
+                                                                    ))}
+                                                                </select>
+                                                            <br />
+                                                        </div>
+
+                                            <div className="col-sm-3 mt-4">
+                                                <div className="input-group">
                                                         <label className="font-weight-normal" for="reportType"><b>Thư ký hành chính</b></label>
                                                     </div>
                                                 </div>
@@ -210,7 +293,7 @@ function EditProgramC({ programId }) {
                                                 <br />
                                             </div>
 
-                                            <div className="col-sm-5 mt-5">
+                                            <div className="col-sm-5 mt-5 mb-5">
                                             <button type="submit" className='btn btn-info btn-sm mr-2'><i class="fas fa-save"></i> Lưu</button>
                                             <button type="button" className='btn btn-danger btn-sm' onClick={ShowForm}><i class="fas fa-window-close"></i> Hủy</button>
                                             </div>
