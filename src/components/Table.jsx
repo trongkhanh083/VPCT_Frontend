@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getNhiemvuAPI, delNhiemVusAPI, getChuyengiasAPI } from "../../src/api/todos";
 
 export default class Table extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -98,70 +99,85 @@ export default class Table extends Component {
                             <div className="col-12">
                                 <div className="card">
                                     <div className="card-body">
-                                    
-                                    <table id="example1" className="table table-responsive table-bordered table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th>STT</th>
-                                            <th>Mã số NV</th>
-                                            <th className='w-125'>Tên đề tài, dự án</th>
-                                            <th>Chủ nhiệm</th>
-                                            <th>Bắt đầu</th>
-                                            <th>Kết thúc</th>
-                                            <th>Nghiệm thu</th>
-                                            <th>Tổng KP thực hiện</th>
-                                            <th>Tổng KP ngoài NS</th>
-                                            <th>Tổng KP NSNN</th>
-                                            <th>Lãnh đạo VPCT phụ trách</th>
-                                            <th>Chuyên viên tổng hợp kế toán phụ trách</th>
-                                            <th>Vụ chuyên ngành phụ trách</th>
-                                            <th>Xuất bản</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
+                                    {nhiemvus.length > 0 ? (
+                                    <div className="table-responsive">
+                                        <table className="table table-bordered table-hover">
+                                            <thead className="thead-light">
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Mã số NV</th>
+                                                <th style={{ width: "70%" }}>Tên đề tài, dự án</th>
+                                                <th>Chủ nhiệm</th>
+                                                <th>Bắt đầu</th>
+                                                <th>Kết thúc</th>
+                                                <th>Nghiệm thu</th>
+                                                <th>Tổng KP thực hiện</th>
+                                                <th>Tổng KP ngoài NS</th>
+                                                <th>Tổng KP NSNN</th>
+                                                <th>Lãnh đạo VPCT phụ trách</th>
+                                                <th>Chuyên viên tổng hợp kế toán phụ trách</th>
+                                                <th>Vụ chuyên ngành phụ trách</th>
+                                                <th>Xuất bản</th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
 
-                                        <tbody>
-                                        {nhiemvus?.map((item, key) => (
-                                                        <tr key={key}>
-                                                            <td>{key + 1}</td>
-                                                            
-                                                            <td>{item.maNhiemVu}</td>
-                                                            <td className='w-125'>{item.name}</td>
-                                                            <td>{chuyengias?.map((i, k) => k === item.presidentId && i.name)}</td>
-                                                            <td>{item.startDate_Month} / {item.startDate_Year}</td>
-                                                            <td>{item.endDate_Month} / {item.endDate_Year}</td>
-                                                            <td>{item.ngiemThu_Month} / {item.ngiemThu_Year}</td>
-                                                            <td>{item.kinhPhi_Total}</td>
-                                                            <td>{item.khac_Total}</td>
-                                                            
-                                                            <td>{item.nganSachNhaNuoc_Total}</td>
-                                                            <td>{item.vpcT_Leader}</td>
-                                                            
-                                                            <td>{item.planning_Specialist}</td>
-                                                            <td>{item.departmentAdmin}</td>
-                                                            <td>
-                                                            <div class="form-check text-center">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked="checked" />
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <a className="btn btn-warning btn-sm mb-1" href={`/action/editDuty/${item.id}`}>
-                                                                <i className="fas fa-pencil-alt" /> Sửa
-                                                                </a>
-                                                                <button 
-                                                                    className="btn btn-danger btn-sm" 
-                                                                    type="button"
-                                                                    aria-label="Delete"
-                                                                    title="Delete"
-                                                                    onClick={() => this.delNhiemVu(item.id)}
-                                                                >
-                                                                <i className="fas fa-trash" /> Xóa
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                    ))}
-                                        </tbody>
-                                    </table>
+                                            <tbody>
+                                            {nhiemvus?.map((item, key) => (
+                                                <tr key={key}>
+                                                    <td>{key + 1}</td>
+                                                                
+                                                    <td>{item.maNhiemVu}</td>
+                                                    <td>{item.name}</td>
+                                                    <td>{chuyengias?.map((i, k) => k === item.presidentId - 1 && i.name)}</td>
+                                                    <td>{item.startDate_Year}</td>
+                                                    <td>{item.endDate_Year}</td>
+                                                    <td>{item.ngiemThu_Year}</td>
+                                                    <td>{item.fundingPlan_FirstYear}</td>
+                                                    <td>{item.fundingPlan_SecondYear}</td>               
+                                                    <td>{item.fundingPlan_ThirdYear}</td>
+                                                    <td>{item.vpcT_Leader}</td>          
+                                                    <td>{item.planning_Specialist}</td>
+                                                    <td>{item.departmentAdmin}</td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input 
+                                                                class="form-check-input" 
+                                                                type="checkbox" 
+                                                                value="" 
+                                                                id={`defaultCheck${key}`}
+                                                                checked="checked" 
+                                                            />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a 
+                                                            className="btn btn-warning btn-sm mb-1"
+                                                            type="button"
+                                                            aria-label="Edit"
+                                                            title="Edit"
+                                                            href={`/action/editDuty/${item.id}`}
+                                                        >
+                                                        <i className="fas fa-pencil-alt" /> Sửa
+                                                        </a>
+                                                        <button 
+                                                            className="btn btn-danger btn-sm" 
+                                                            type="button"
+                                                            aria-label="Delete"
+                                                            title="Delete"
+                                                            onClick={() => this.delNhiemVu(item.id)}
+                                                        >
+                                                        <i className="fas fa-trash" /> Xóa
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    ) : (
+                                        <p className="text-center">No data available in table</p>
+                                    )}
                                     </div>
                                     {/* /.card-body */}
                                 </div>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import "../css/program_report.css";
 import ProductTable from './container/ProductITableDTO';
 import ProductTableII from './container/ProductIITableDTO';
 import ProductTableIII from './container/ProductIIIDTO';
-import { getProductIDTO, getProductIIDTO, getProductIIIDTO,getProductOtherDTO,getProductPostDTO } from '../api/todos';
+import { getProductIDTO, getProductIIDTO, getProductIIIDTO, getProductOtherDTO, getProductPostDTO } from '../api/todos';
+import "../css/program_report.css";
 
 export default class Statistic extends Component {
   constructor(props) {
@@ -55,6 +55,35 @@ export default class Statistic extends Component {
       this.setState({ productData: mergedData, showTable: true });
     }
   };
+
+  handlePrintReport = async () => {
+    if (this.state.selectedLoaiCT && this.state.selectedReportType === "4") {
+      // Prepare the query parameters
+      const queryParams = {};
+      if (this.state.selectedLoaiCT) {
+        queryParams.loaiCtId = this.state.selectedLoaiCT;
+      }
+  
+      const queryString = new URLSearchParams(queryParams).toString();
+  
+      const response = await fetch('https://localhost:7220/api/NhiemVus/downloadExcel?' + queryString);
+      const blob = await response.blob();
+  
+      // Create a temporary URL for the file
+      const url = window.URL.createObjectURL(new Blob([blob]));
+  
+      // Create a link and click it to initiate the download
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', `_CẬP NHẬT KIỂM TRA, XÁC NHẬN NỘI DUNG, BÁO CÁO ĐỊNH KỲ NĂM ${new Date().getFullYear()}.xlsx`);
+      document.body.appendChild(link);
+      link.click();
+  
+      // Clean up
+      document.body.removeChild(link);
+    }
+  };
+
   render() {
     const { showTable, productData, selectedReportType } = this.state;
 
@@ -112,7 +141,7 @@ export default class Statistic extends Component {
 
                     <div className='div-button-report'>
                       <button className='btn btn-info button-report' onClick={this.handleViewReport}>Xem báo cáo</button>
-                      <button className='btn btn-warning button-report'>In báo cáo</button>
+                      <button className='btn btn-warning button-report' onClick={this.handlePrintReport}>In báo cáo</button>
                     </div>
                     {showTable && selectedReportType === "1" && <ProductTable productData={productData} />}
                     {showTable && selectedReportType === "2" && <ProductTableII productData={productData} />}

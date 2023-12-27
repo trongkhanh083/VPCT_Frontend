@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../css/table.css';
 
 import {getChuyengiasAPI} from "../../../src/api/todos";
 export default class Expert_con extends Component {
@@ -55,9 +54,10 @@ export default class Expert_con extends Component {
                             <div className="col-12">
                                 <div className="card">
                                     <div className="card-body">
-                                    
-                                    <table id="example1" className="table table-responsive table-bordered table-striped">
-                                        <thead>
+                                    {chuyengias.length > 0 ? (
+                                    <div className="table-responsive">
+                                    <table className="table table-bordered table-hover text-center">
+                                        <thead className="thead-light">
                                         <tr>
                                             <th>STT</th>
                                             <th></th>
@@ -102,6 +102,10 @@ export default class Expert_con extends Component {
 
                                         </tbody>
                                     </table>
+                                    </div>
+                                    ) : (
+                                        <p className="text-center">No data available in table</p>
+                                    )}
                                     </div>
                                     {/* /.card-body */}
                                 </div>

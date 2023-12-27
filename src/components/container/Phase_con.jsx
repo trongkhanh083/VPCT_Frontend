@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../css/table.css';
 import {getGiaidoansAPI} from "../../../src/api/todos";
+
 export default class Phase_con extends Component {
     constructor(props) {
         super(props);
@@ -54,43 +54,46 @@ export default class Phase_con extends Component {
                             <div className="col-12">
                                 <div className="card">
                                     <div className="card-body">
-                                    
-                                    <table id="example1" className="table table-bordered table-striped text-center">
-                                        <thead>
-                                        <tr>
-                                            <th>Thứ tự</th>
-                                            <th>Bắt đầu</th>
-                                            <th>Kết thúc</th>
-                                            <th>Mặc định</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
+                                    {giaidoans.length > 0 ? (
+                                    <div className="table-responsive">
+                                        <table className="table table-bordered table-hover text-center">
+                                            <thead className="thead-light">
+                                            <tr>
+                                                <th>Thứ tự</th>
+                                                <th>Bắt đầu</th>
+                                                <th>Kết thúc</th>
+                                                <th>Mặc định</th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
 
-                                        <tbody>
-                                        {giaidoans?.map((item, key) => (
-                                                        <tr key={key}>
-                                                            <td>{key + 1}</td>
-                                                            <td>
-                                                                {item.start}
-                                                            </td>
-                                                            <td>{item.end}</td>
-                                                            <td>
-                                                            <div class="form-check text-center">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <a className="btn btn-warning btn-sm mr-2" href="#">
-                                                                <i className="fas fa-pencil-alt" /> Sửa
-                                                                </a>
-                                                                <a className="btn btn-danger btn-sm" href="#">
-                                                                <i className="fas fa-trash" /> Xóa
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    ))}
-                                        </tbody>
-                                    </table>
+                                            <tbody>
+                                            {giaidoans?.map((item, key) => (
+                                            <tr key={key}>
+                                                <td>{key + 1}</td>
+                                                <td>{item.start}</td>
+                                                <td>{item.end}</td>
+                                                <td>
+                                                    <div class="form-check text-center">
+                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a className="btn btn-warning btn-sm mr-2" href="#">
+                                                    <i className="fas fa-pencil-alt" /> Sửa
+                                                    </a>
+                                                    <a className="btn btn-danger btn-sm" href="#">
+                                                    <i className="fas fa-trash" /> Xóa
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    ) : (
+                                        <p className="text-center">No data available in table</p>
+                                    )}
                                     </div>
                                     {/* /.card-body */}
                                 </div>

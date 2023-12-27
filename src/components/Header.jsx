@@ -1,28 +1,34 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Header extends Component {
     render() {
         return (
             <div>
                 {/* Navbar */}
-                <nav className="main-header navbar navbar-expand navbar-light">
+                <nav className="main-header navbar navbar-expand navbar-light" style={{backgroundColor: '#e3f2fd'}}>
                 {/* Left navbar links */}
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                        <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
+                        <a className="nav-link text-info" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
                         </li>
-                        <li className="nav-item d-none d-sm-inline-block">
-                        <a href="/home" className="nav-link">Chương trình</a>
+                        <li className="nav-item ml-3">
+                            <Link to="/home" className="nav-link text-info">
+                                <i className="nav-icon fas fa-tachometer-alt" /> Chương trình
+                            </Link>
                         </li>
-                        <li className="nav-item d-none d-sm-inline-block">
-                        <a href="/duty" className="nav-link">Nhiệm vụ KH&CN</a>
+                        <li className="nav-item">
+                            <Link to="/duty" className="nav-link text-info">
+                            <i className="nav-icon fas fa-th" /> Nhiệm vụ KH&CN
+                            </Link>
                         </li>
+                        
                     </ul>
                     {/* Right navbar links */}
                     <ul className="navbar-nav ml-auto">
                         {/* Navbar Search */}
                         <li className="nav-item">
-                            <a className="nav-link" data-widget="navbar-search" href="#" role="button">
+                            <a className="nav-link text-info" data-widget="navbar-search" href="#" role="button">
                                 <i className="fas fa-search" />
                             </a>
                             <div className="navbar-search-block">
@@ -43,7 +49,7 @@ export default class Header extends Component {
                         </li>
                         {/* Notifications Dropdown Menu */}
                         <li className="nav-item dropdown">
-                            <a className="nav-link" data-toggle="dropdown" href="#">
+                            <a className="nav-link text-info" data-toggle="dropdown" href="#">
                                 <i className="far fa-bell" />
                                 <span className="badge badge-warning navbar-badge">15</span>
                             </a>
@@ -69,20 +75,25 @@ export default class Header extends Component {
                             </div>
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <a className="nav-link text-info" data-widget="fullscreen" href="#" role="button">
                             <i className="fas fa-expand-arrows-alt" />
                         </a>
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
+                        <a className="nav-link text-info" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
                             <i className="fas fa-th-large" />
                         </a>
                         </li>
-                        <li className="nav-item d-none d-sm-inline-block">
-                        <a href="/profile" className="nav-link"><i class="fas fa-user-cog"></i> sysadmin </a>
+
+                        <li className="nav-item">
+                        <Link to="/profile" className="text-success btn btn-outline-success mr-2">
+                            <i class="fas fa-user-cog"></i> sysadmin 
+                        </Link>
                         </li>
-                        <li className="nav-item d-none d-sm-inline-block">
-                        <a href="/login" className="nav-link"><i class="fas fa-sign-out-alt"></i> Đăng xuất </a>
+                        <li className="nav-item">
+                        <Link to="/login" className="text-danger btn btn-outline-danger">
+                            <i class="fas fa-sign-out-alt"></i> Đăng xuất 
+                        </Link>
                         </li>
                     </ul>
                 </nav>

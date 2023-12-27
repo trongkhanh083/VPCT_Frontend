@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../css/table.css';
 import {getHocviAPI} from "../../../src/api/todos";
 
 export default class Degree_con extends Component {
@@ -55,39 +54,44 @@ export default class Degree_con extends Component {
                             <div className="col-12">
                                 <div className="card">
                                     <div className="card-body">
-                                    
-                                    <table id="example1" className="table table-bordered table-striped text-center">
-                                        <thead>
-                                        <tr>
-                                            <th>STT</th>
-                                            <th></th>
-                                            <th>Tên học vị</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
+                                    {hocvis.length > 0 ? (
+                                    <div className="table-responsive">
+                                        <table className="table table-bordered table-hover text-center">
+                                            <thead className="thead-light">
+                                            <tr>
+                                                <th>STT</th>
+                                                <th></th>
+                                                <th>Tên học vị</th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
 
-                                        <tbody>
-                                        {hocvis?.map((item, key) => (
-                                                        <tr key={key}>
-                                                            <td>{key + 1}</td>
-                                                            <td>
-                                                                <div class="form-check text-center">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                                </div>
-                                                            </td>
-                                                            <td>{item.name}</td>
-                                                            <td>
-                                                                <a className="btn btn-warning btn-sm mr-2" href="#">
-                                                                <i className="fas fa-pencil-alt" /> Sửa
-                                                                </a>
-                                                                <a className="btn btn-danger btn-sm" href="#">
-                                                                <i className="fas fa-trash" /> Xóa
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    ))}
-                                        </tbody>
-                                    </table>
+                                            <tbody>
+                                            {hocvis?.map((item, key) => (
+                                                            <tr key={key}>
+                                                                <td>{key + 1}</td>
+                                                                <td>
+                                                                    <div class="form-check text-center">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                                    </div>
+                                                                </td>
+                                                                <td>{item.name}</td>
+                                                                <td>
+                                                                    <a className="btn btn-warning btn-sm mr-2" href="#">
+                                                                    <i className="fas fa-pencil-alt" /> Sửa
+                                                                    </a>
+                                                                    <a className="btn btn-danger btn-sm" href="#">
+                                                                    <i className="fas fa-trash" /> Xóa
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    ) : (
+                                        <p className="text-center">No data available in table</p>
+                                    )}
                                     </div>
                                     {/* /.card-body */}
                                 </div>

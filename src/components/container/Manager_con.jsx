@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../css/table.css';
 import {getDonvichuquanAPI} from "../../../src/api/todos";
 
 export default class Manager_con extends Component {
@@ -28,10 +27,10 @@ export default class Manager_con extends Component {
                 <section className="content-header">
                     <div className="container-fluid">
                         <div className="row mb-2">
-                            <div className="col-sm-2">
+                            <div className="col-sm-3">
                                 <h5>Quản lý Đơn vị chủ quản</h5>
                             </div>
-                            <div className="col-sm-4">
+                            <div className="col-sm-3">
                                 <td className="project-actions text-right">
                                     <a className="btn btn-success btn-sm mr-2" href="#">
                                     <i className="fas fa-plus" /> Thêm 
@@ -55,39 +54,44 @@ export default class Manager_con extends Component {
                             <div className="col-12">
                                 <div className="card">
                                     <div className="card-body">
-                                    
-                                    <table id="example1" className="table table-bordered table-striped text-center">
-                                        <thead>
-                                        <tr>
-                                            <th>STT</th>
-                                            <th></th>
-                                            <th>Tên đơn vị chủ quản</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
+                                    {donvichuquans.length > 0 ? (
+                                    <div className="table-responsive">
+                                        <table className="table table-bordered table-hover text-center">
+                                            <thead className="thead-light">
+                                            <tr>
+                                                <th>STT</th>
+                                                <th></th>
+                                                <th>Tên đơn vị chủ quản</th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
 
-                                        <tbody>
-                                        {donvichuquans?.map((item, key) => (
-                                                        <tr key={key}>
-                                                            <td>{key + 1}</td>
-                                                            <td>
-                                                                <div class="form-check text-center">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                                </div>
-                                                            </td>
-                                                            <td>{item.name}</td>
-                                                            <td>
-                                                                <a className="btn btn-warning btn-sm mr-2" href="#">
-                                                                <i className="fas fa-pencil-alt" /> Sửa
-                                                                </a>
-                                                                <a className="btn btn-danger btn-sm" href="#">
-                                                                <i className="fas fa-trash" /> Xóa
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    ))}
-                                        </tbody>
-                                    </table>
+                                            <tbody>
+                                            {donvichuquans?.map((item, key) => (
+                                            <tr key={key}>
+                                                <td>{key + 1}</td>
+                                                <td>
+                                                    <div class="form-check text-center">
+                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                    </div>
+                                                </td>
+                                                <td>{item.name}</td>
+                                                <td>
+                                                    <a className="btn btn-warning btn-sm mr-2" href="#">
+                                                    <i className="fas fa-pencil-alt" /> Sửa
+                                                    </a>
+                                                    <a className="btn btn-danger btn-sm" href="#">
+                                                    <i className="fas fa-trash" /> Xóa
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    ) : (
+                                        <p className="text-center">No data available in table</p>
+                                    )}
                                     </div>
                                     {/* /.card-body */}
                                 </div>

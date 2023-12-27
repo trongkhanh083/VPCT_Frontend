@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../css/table.css';
 import {getCoquanchutriAPI, getDonvichuquanAPI} from "../../../src/api/todos";
 export default class Facility_con extends Component {
     constructor(props) {
@@ -57,9 +56,10 @@ export default class Facility_con extends Component {
                             <div className="col-12">
                                 <div className="card">
                                     <div className="card-body">
-                                    
-                                    <table id="example1" className="table table-bordered table-striped text-center">
-                                        <thead>
+                                    {coquanchutris.length > 0 ? (
+                                    <div className="table-responsive">
+                                    <table className="table table-bordered table-hover text-center">
+                                        <thead className="thead-light">
                                         <tr>
                                             <th>STT</th>
                                             <th></th>
@@ -72,32 +72,36 @@ export default class Facility_con extends Component {
                                         </tr>
                                         </thead>
 
-                                     <tbody>
-                                        {coquanchutris?.map((item, key) => (
-                                                        <tr key={key}>
-                                                            <td>{key + 1}</td>
-                                                            <td>
-                                                                <div class="form-check text-center">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                                </div>
-                                                            </td>
-                                                            <td>{item.name}</td>
-                                                            <td>{donvichuquans?.map((i, k) => k === item.donViChuQuanId - 1 && i.name)}</td>
-                                                            <td>{item.address}</td>
-                                                            <td>{item.phoneNumber}</td>
-                                                            <td>{item.fax}</td>
-                                                            <td>
-                                                                <a className="btn btn-warning btn-sm mb-1" href="#">
-                                                                <i className="fas fa-pencil-alt" /> Sửa
-                                                                </a>
-                                                                <a className="btn btn-danger btn-sm" href="#">
-                                                                <i className="fas fa-trash" /> Xóa
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    ))}
-                                     </tbody>
+                                        <tbody>
+                                            {coquanchutris?.map((item, key) => (
+                                            <tr key={key}>
+                                                <td>{key + 1}</td>
+                                                <td>
+                                                    <div class="form-check text-center">
+                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                    </div>
+                                                </td>
+                                                <td>{item.name}</td>
+                                                <td>{donvichuquans?.map((i, k) => k === item.donViChuQuanId - 1 && i.name)}</td>
+                                                <td>{item.address}</td>
+                                                <td>{item.phoneNumber}</td>
+                                                <td>{item.fax}</td>
+                                                <td>
+                                                    <a className="btn btn-warning btn-sm mb-1" href="#">
+                                                    <i className="fas fa-pencil-alt" /> Sửa
+                                            </a>
+                                                    <a className="btn btn-danger btn-sm" href="#">
+                                                    <i className="fas fa-trash" /> Xóa
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                        </tbody>
                                     </table>
+                                    </div>
+                                    ) : (
+                                        <p className="text-center">No data available in table</p>
+                                    )}
                                     </div>
                                     {/* /.card-body */}
                                 </div>

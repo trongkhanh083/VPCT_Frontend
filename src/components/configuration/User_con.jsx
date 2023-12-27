@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../css/table.css';
 import { getUsersAPI } from "../../../src/api/todos";
 
 export default class User_con extends Component {
@@ -76,6 +75,11 @@ export default class User_con extends Component {
                                     <h5>Quản lý Người dùng</h5>
                                 </div>
                                 <div className="col-sm-4">
+                                    <td className="project-actions text-right">
+                                        <a className="btn btn-warning btn-sm mr-2" href="/system/user">
+                                        <i className="fas fa-pencil-alt" /> Lưu
+                                        </a>
+                                    </td>
                                 </div>
                                 <div className="col-sm-6">
                                     <ol className="breadcrumb float-sm-right">
@@ -93,8 +97,10 @@ export default class User_con extends Component {
                                 <div className="col-12">
                                     <div className="card">
                                         <div className="card-body">
-                                            <table id="example1" className="table table-responsive table-bordered table-striped">
-                                                <thead>
+                                        {users.length > 0 ? (
+                                        <div className="table-responsive">
+                                            <table className="table table-bordered table-hover text-center">
+                                                <thead className="thead-light">
                                                     <tr>
                                                         <th>STT</th>
                                                         <th>Tên đăng nhập</th>
@@ -139,6 +145,10 @@ export default class User_con extends Component {
                                                     ))}
                                                 </tbody>
                                             </table>
+                                            </div>
+                                            ) : (
+                                                <p className="text-center">No data available in table</p>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

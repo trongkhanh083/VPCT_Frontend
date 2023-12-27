@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Tabs, Tab } from 'react-bootstrap';
 import { addProgramsAPI, getTypeProgramsAPI, getProgramsAPI, getCoquanchutriAPI } from "../../src/api/todos";
-import '../css/table.css';
 
 function AddProgramC() {
     

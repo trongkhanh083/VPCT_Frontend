@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { editProgramsAPI, getTypeProgramsAPI, getProgramAPI, getProgramsAPI } from "../../src/api/todos";
-import '../css/table.css';
 
 function EditProgramC({ programId }) {  
 
@@ -136,16 +135,15 @@ function EditProgramC({ programId }) {
                                             <div className="col-sm-3 mt-4">
                                             </div>
                                             <div className="col-sm-9 mt-4">
-                                            <div >
-                                                <ol className="breadcrumb float-sm-left">
-                                                    <li className="breadcrumb-item"><a href={`/search/chuyengia/${program.id}`}>Chuyên gia thuộc chương trình</a></li>
-                                                    <li className="breadcrumb-item active"> <a href={`/search/nhiemvu/${program.id}`}> Nhiệm vụ thuộc chương trình</a></li>
-                                                    <li className="breadcrumb-item active"><a href={`/search/coquanquanly/${program.id}`}> Đơn vị quản lí </a> </li>
-                                                    
-                                                </ol>
+                                                <div >
+                                                    <ol className="breadcrumb float-sm-left">
+                                                        <li className="breadcrumb-item"><a href={`/search/chuyengia/${program.id}`}>Chuyên gia thuộc chương trình</a></li>
+                                                        <li className="breadcrumb-item active"> <a href={`/search/nhiemvu/${program.id}`}> Nhiệm vụ thuộc chương trình</a></li>
+                                                        <li className="breadcrumb-item active"><a href={`/search/coquanquanly/${program.id}`}> Đơn vị quản lí </a> </li>
+                                                    </ol>
+                                                </div>
+                                                <br />
                                             </div>
-                                            <br />
-                                        </div>
 
                                             <div className="col-sm-3 mt-5">
                                                 <div className="input-group">

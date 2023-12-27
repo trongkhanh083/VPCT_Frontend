@@ -1,25 +1,20 @@
 import React, { useState, useEffect } from "react";
 import {getCoquanquanlyBychuongtrinh} from "../api/todos";
-import "../css/table.css";
 
 function SearchByCoquanquanly({ programId }) {
  
-  const [program, setProgram] = useState({});
+    const [program, setProgram] = useState({});
 
-  useEffect(() => {
-    async function fetchData() {
-  
+    useEffect(() => {
+        async function fetchData() {
+            const programData = await getCoquanquanlyBychuongtrinh(programId);
+            setProgram(programData);
+        }
+        fetchData();
+    }, [programId]);
 
-      const programData = await getCoquanquanlyBychuongtrinh(programId);
-      setProgram(programData);
-    
-    }
-    fetchData();
-  }, [programId]);
-
-
-  return (
-    <div>
+    return (
+        <div>
                 {/* Content Wrapper. Contains page content */}
                 <div className="content-wrapper">
                 {/* Content Header (Page header) */}
@@ -82,40 +77,27 @@ function SearchByCoquanquanly({ programId }) {
                             <div className="col-12">
                                 <div className="card">
                                     <div className="card-body">
-                                    
-                                    <table id="example1" className="table table-responsive table-bordered table-striped" style={{ width: '100%' }}>
-                                        <thead>
-                                        <tr>
-            <th style={{ width: '5%' }}>STT</th>
-            
-            <th style={{ width: '10%' }}>Tên đơn vị</th>
-            {/* <th style={{ width: '10%' }}>Ngày sinh</th> */}
-            <th style={{ width: '10%' }}>Địa chỉ</th>
-            {/* <th style={{ width: '20%' }}>Địa chỉ</th>
-            <th style={{ width: '10%' }}>Email</th> */}
-            <th style={{ width: '5%' }}>Số điện thoại</th>
-            
-        </tr>
-                                        </thead>
-
-                                        <tbody>
+                                    <div className="table-responsive">
+                                        <table className="table table-bordered table-hover text-center">
+                                            <thead className="thead-light">
                                             <tr>
-                                                <td>{program?.id}</td>
-                                             
-
-                                                <td>{program?.name}</td>
-                                             
-
-                                                <td>{program?.address}</td>
-                                                <td>{program?.phoneNumber}</td>
-                                                
-                                             
-                                                
-                                                 
+                                                <th>STT</th>
+                                                <th>Tên đơn vị</th>
+                                                <th>Địa chỉ</th>
+                                                <th>Số điện thoại</th>
                                             </tr>
-                                        
-                                        </tbody>
-                                    </table>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr>
+                                                    <td>{program?.id}</td>
+                                                    <td>{program?.name}</td>
+                                                    <td>{program?.address}</td>
+                                                    <td>{program?.phoneNumber}</td>             
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     </div>
                                     {/* /.card-body */}
                                 </div>
@@ -130,8 +112,8 @@ function SearchByCoquanquanly({ programId }) {
                 {/* /.content */}
                 </div>
                 {/* /.content-wrapper */}
-            </div>   
-  );
+        </div>   
+    );
 }
 
 export default SearchByCoquanquanly;

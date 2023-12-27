@@ -1,25 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import {getNhiemvubyProgramsAPI} from "../api/todos";
-import "../css/table.css";
 
 function SearchByNhiemvu({ programId }) {
  
-  const [program, setProgram] = useState({});
+    const [program, setProgram] = useState({});
 
-  useEffect(() => {
-    async function fetchData() {
-  
+    useEffect(() => {
+        async function fetchData() {
+            const programData = await getNhiemvubyProgramsAPI(programId);
+            setProgram(programData);
+        }
+        fetchData();
+    }, [programId]);
 
-      const programData = await getNhiemvubyProgramsAPI(programId);
-      setProgram(programData);
-    
-    }
-    fetchData();
-  }, [programId]);
-
-  return (
-    <div>
+    return (
+        <div>
                 {/* Content Wrapper. Contains page content */}
                 <div className="content-wrapper">
                 {/* Content Header (Page header) */}
@@ -82,74 +77,58 @@ function SearchByNhiemvu({ programId }) {
                             <div className="col-12">
                                 <div className="card">
                                     <div className="card-body">
-                                    
-                                    <table id="example1" className="table table-responsive table-bordered table-striped" style={{ width: '100%' }}>
-                                        <thead>
-                                        <tr>
-                                        {/* <th style={{ width: '5%' }}>STT</th> */}
-                                            <th style={{ width: '10%' }}>Mã số NV</th>
-                                            <th style={{ width: '350%' }}>Tên đề tài, dự án</th>
-                                            <th style={{ width: '10%' }}>Chủ nhiệm</th>
-                                            <th style={{ width: '98%' }}>Bắt đầu</th>
-                                            <th style={{ width: '8%' }}>Kết thúc</th>
-                                            <th style={{ width: '8%' }}>Nghiệm thu</th>
-                                            <th style={{ width: '6%' }}>Tổng KP thực hiện</th>
-                                            <th style={{ width: '6%' }}>Tổng KP ngoài NS</th>
-                                            <th style={{ width: '6%' }}>Tổng KP NSNN</th>
-                                            <th style={{ width: '8%' }}>Lãnh đạo VPCT phụ trách</th>
-                                            <th style={{ width: '8%' }}>Chuyên viên kế toán phụ trách</th>
-                                            <th style={{ width: '8%' }}>Chuyên viên tổng hợp kế toán phụ trách</th>
-                                            <th style={{ width: '8%' }}>Vụ chuyên ngành phụ trách</th>
-                                            <th style={{ width: '8%' }}>Trạng thái</th>
-                                            <th style={{ width: '5%' }}>Chức năng</th>
-                                            
-                                        
-                                        </tr>
-                                        </thead>
-
-                                        <tbody>
-                                        
+                                    <div className="table-responsive">
+                                        <table className="table table-bordered table-hover">
+                                            <thead className="thead-light">
                                             <tr>
-                                            {/* <td>{program.id || ""}</td> */}
-                                            <td>{program?.maNhiemVu || ""}</td>
-                                            <td>{program?.name || ""}</td>
-                                            <td>{program?.president || ""}</td>
-                                            <td>{program?.startDate_Month  || ""} / {program?.startDate_Year || ""}</td>
-                                            <td>{program?.endDate_Month} / {program?.endDate_Year}</td>
-                                            <td>{program?.ngiemThu_Month} / {program?.ngiemThu_Year}</td>
-                                            <td>{program?.kinhPhi_Total || ""}</td>
-                                            <td>{program?.khac_Total || ""}</td>
-                                            <td>{program?.nganSachNhaNuoc_Total || ""}</td>
-                                            <td>{program?.vpcT_Leader || ""}</td>
-                                            <td></td>
-                                            <td>{program?.planning_Specialist || ""}</td>
-                                            <td>{program?.departmentAdmin || ""}</td>
-
-                                                            <td >
-                                                               Thực hiện
-                                                            </td>
-                                                            <td>
-                                                            <a
-                                                                className="btn btn-warning btn-sm mb-1"
-                                                                type="button"
-                                                                aria-label="Edit"
-                                                                title="Edit"
-                                                                href={`/action/editNhiemVu/${program?.id}`}
-                                                                >
-                                                                <i className="fas fa-pencil-alt" /> Sửa
-                                                                </a>
-                                                            </td>
-                                               
-                                                
-                                                
-                                                
-
-                                               
-                                                 
+                                                <th>Mã số NV</th>
+                                                <th style={{ width: '70%' }}>Tên đề tài, dự án</th>
+                                                <th>Chủ nhiệm</th>
+                                                <th>Bắt đầu</th>
+                                                <th>Kết thúc</th>
+                                                <th>Nghiệm thu</th>
+                                                <th>Tổng KP thực hiện</th>
+                                                <th>Tổng KP ngoài NS</th>
+                                                <th>Tổng KP NSNN</th>
+                                                <th>Lãnh đạo VPCT phụ trách</th>
+                                                <th>Chuyên viên kế toán phụ trách</th>
+                                                <th>Chuyên viên tổng hợp kế toán phụ trách</th>
+                                                <th>Vụ chuyên ngành phụ trách</th>
+                                                <th>Trạng thái</th>
+                                                <th>Xuất bản</th>
                                             </tr>
-                                       
-                                        </tbody>
-                                    </table>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr>
+                                                <td>{program?.maNhiemVu || ""}</td>
+                                                <td>{program?.name || ""}</td>
+                                                <td>{program?.president || ""}</td>
+                                                <td>{program?.startDate_Month  || ""} / {program?.startDate_Year || ""}</td>
+                                                <td>{program?.endDate_Month} / {program?.endDate_Year}</td>
+                                                <td>{program?.ngiemThu_Month} / {program?.ngiemThu_Year}</td>
+                                                <td>{program?.kinhPhi_Total || ""}</td>
+                                                <td>{program?.khac_Total || ""}</td>
+                                                <td>{program?.nganSachNhaNuoc_Total || ""}</td>
+                                                <td>{program?.vpcT_Leader || ""}</td>
+                                                <td></td>
+                                                <td>{program?.planning_Specialist || ""}</td>
+                                                <td>{program?.departmentAdmin || ""}</td>
+                                                <td >Thực hiện</td>
+                                                <td>
+                                                    <div class="form-check text-center">
+                                                        <input 
+                                                            class="form-check-input" 
+                                                            type="checkbox" 
+                                                            value="" 
+                                                            checked="checked" 
+                                                        />
+                                                    </div>
+                                                </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     </div>
                                     {/* /.card-body */}
                                 </div>
@@ -165,7 +144,7 @@ function SearchByNhiemvu({ programId }) {
                 </div>
                 {/* /.content-wrapper */}
             </div>   
-  );
+    );
 }
 
 export default SearchByNhiemvu;

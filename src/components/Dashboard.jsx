@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "../css/table.css";
 import { getProgramsAPI, delProgramsAPI } from "../api/todos";
 
 export default class Dashboard extends Component {
@@ -117,95 +115,96 @@ export default class Dashboard extends Component {
               <div className="row">
                 <div className="col-12">
                   <div className="card">
-                    <div className="card-body">
-                      <table
-                        id="example1"
-                        className="table table-responsive table-bordered table-striped"
-                        style={{ width: "100%" }}
-                      >
-                        <thead>
-                          <tr>
-                            <th style={{ width: "5%" }}>STT</th>
-                            <th style={{ width: "5%" }}>Mã số</th>
-                            <th style={{ width: "50%" }}>Tên chương trình</th>
-                            <th style={{ width: "10%" }}>Chủ nhiệm CT</th>
-                            <th style={{ width: "10%" }}>Phó chủ nhiệm CT</th>
-                            <th style={{ width: "10%" }}>
-                              Ủy viên, Thư ký khoa học
-                            </th>
-                            <th style={{ width: "5%" }}>Ủy viên</th>
-                            <th style={{ width: "5%" }}>Ủy viên</th>
-                            <th style={{ width: "5%" }}>Ủy viên</th>
-                            <th style={{ width: "10%" }}>Thư ký hành chính</th>
-                            <th style={{ width: "5%" }}>Xuất bản</th>
-                            <th style={{ width: "5%" }}></th>
-                            <th style={{ width: "10%" }}></th>
-                          </tr>
-                        </thead>
+                      <div className="card-body">
+                      {programs.length > 0 ? (
+                        <div className="table-responsive">
+                          <table className="table table-bordered table-hover">
+                            <thead className="thead-light">
+                              <tr>
+                                <th>STT</th>
+                                <th>Mã số</th>
+                                <th style={{ width: "30%" }}>Tên chương trình</th>
+                                <th>Chủ nhiệm CT</th>
+                                <th>Phó chủ nhiệm CT</th>
+                                <th>Ủy viên, Thư ký khoa học</th>
+                                <th>Ủy viên</th>
+                                <th>Ủy viên</th>
+                                <th>Ủy viên</th>
+                                <th>Thư ký hành chính</th>
+                                <th>Xuất bản</th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
 
-                        <tbody>
-                          {programs?.map((item, key) => (
-                            <tr key={key}>
-                              <td>{key + 1}</td>
-                              <td>{item.maChuongTrinh}</td>
-                              <td>{item.name}</td>
-                              <td>{item.president}</td>
-                              <td>{item.vicePresident}</td>
-                              <td>{item.admin_Secretary}</td>
-                              <td>{item.member1}</td>
-                              <td>{item.member2}</td>
-                              <td>{item.member3}</td>
-                              <td>{item.member_Secretary}</td>
+                            <tbody>
+                              {programs?.map((item, key) => (
+                                <tr key={key}>
+                                  <td>{key + 1}</td>
+                                  <td>{item.maChuongTrinh}</td>
+                                  <td>{item.name}</td>
+                                  <td>{item.president}</td>
+                                  <td>{item.vicePresident}</td>
+                                  <td>{item.admin_Secretary}</td>
+                                  <td>{item.member1}</td>
+                                  <td>{item.member2}</td>
+                                  <td>{item.member3}</td>
+                                  <td>{item.member_Secretary}</td>
 
-                              <td>
-                                <div class="form-check text-center">
-                                  <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    value=""
-                                    id="defaultCheck1"
-                                    checked="checked"
-                                  />
-                                </div>
-                              </td>
-                              <td className="project-actions text-right">
-                                <a
-                                  className="btn btn-info btn-sm mb-1"
-                                  href={`/search/chuyengia/${item.id}`}
-                                >
-                                  <i className="fas fa-pencil-alt" /> Chuyên gia
-                                </a>
-                                <a className="btn btn-success btn-sm" 
-                                  href={`/search/nhiemvu/${item.id}`}
-                                >
-                                  <i className="fas fa-pencil-alt" /> Nhiệm vụ
-                                </a>
-                              </td>
-                              <td>
-                                <a
-                                  className="btn btn-warning btn-sm mb-1"
-                                  type="button"
-                                  aria-label="Edit"
-                                  title="Edit"
-                                  href={`/action/editProgram/${item.id}`}
-                                >
-                                  <i className="fas fa-pencil-alt" /> Sửa
-                                </a>
+                                  <td>
+                                    <div className="form-check text-center">
+                                      <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id={`defaultCheck${key}`}
+                                        checked="checked"
+                                      />
+                                    </div>
+                                  </td>
+                                  <td className="project-actions text-right">
+                                    <a
+                                      className="btn btn-info btn-sm mb-1"
+                                      href={`/search/chuyengia/${item.id}`}
+                                    >
+                                      <i className="fas fa-pencil-alt" /> Chuyên gia
+                                    </a>
+                                    <a
+                                      className="btn btn-success btn-sm"
+                                      href={`/search/nhiemvu/${item.id}`}
+                                    >
+                                      <i className="fas fa-pencil-alt" /> Nhiệm vụ
+                                    </a>
+                                  </td>
+                                  <td>
+                                    <a
+                                      className="btn btn-warning btn-sm mb-1"
+                                      type="button"
+                                      aria-label="Edit"
+                                      title="Edit"
+                                      href={`/action/editProgram/${item.id}`}
+                                    >
+                                      <i className="fas fa-pencil-alt" /> Sửa
+                                    </a>
 
-                                <button
-                                  className="btn btn-danger btn-sm"
-                                  type="button"
-                                  aria-label="Delete"
-                                  title="Delete"
-                                  onClick={() => this.delProgram(item.id)}
-                                >
-                                  <i className="fas fa-trash" /> Xóa
-                                </button>
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                                    <button
+                                      className="btn btn-danger btn-sm"
+                                      type="button"
+                                      aria-label="Delete"
+                                      title="Delete"
+                                      onClick={() => this.delProgram(item.id)}
+                                    >
+                                      <i className="fas fa-trash" /> Xóa
+                                    </button>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      ) : (
+                        <p className="text-center">No data available in table</p>
+                      )}
                     </div>
                     {/* /.card-body */}
                   </div>
