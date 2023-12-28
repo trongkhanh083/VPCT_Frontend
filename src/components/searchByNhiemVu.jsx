@@ -81,6 +81,7 @@ function SearchByNhiemvu({ programId }) {
                                         <table className="table table-bordered table-hover">
                                             <thead className="thead-light">
                                             <tr>
+                                                <th>STT</th>
                                                 <th>Mã số NV</th>
                                                 <th style={{ width: '70%' }}>Tên đề tài, dự án</th>
                                                 <th>Chủ nhiệm</th>
@@ -91,40 +92,37 @@ function SearchByNhiemvu({ programId }) {
                                                 <th>Tổng KP ngoài NS</th>
                                                 <th>Tổng KP NSNN</th>
                                                 <th>Lãnh đạo VPCT phụ trách</th>
-                                                <th>Chuyên viên kế toán phụ trách</th>
                                                 <th>Chuyên viên tổng hợp kế toán phụ trách</th>
                                                 <th>Vụ chuyên ngành phụ trách</th>
-                                                <th>Trạng thái</th>
                                                 <th>Xuất bản</th>
                                             </tr>
                                             </thead>
 
                                             <tbody>
                                                 <tr>
-                                                <td>{program?.maNhiemVu || ""}</td>
-                                                <td>{program?.name || ""}</td>
-                                                <td>{program?.president || ""}</td>
-                                                <td>{program?.startDate_Month  || ""} / {program?.startDate_Year || ""}</td>
-                                                <td>{program?.endDate_Month} / {program?.endDate_Year}</td>
-                                                <td>{program?.ngiemThu_Month} / {program?.ngiemThu_Year}</td>
-                                                <td>{program?.kinhPhi_Total || ""}</td>
-                                                <td>{program?.khac_Total || ""}</td>
-                                                <td>{program?.nganSachNhaNuoc_Total || ""}</td>
-                                                <td>{program?.vpcT_Leader || ""}</td>
-                                                <td></td>
-                                                <td>{program?.planning_Specialist || ""}</td>
-                                                <td>{program?.departmentAdmin || ""}</td>
-                                                <td >Thực hiện</td>
-                                                <td>
-                                                    <div class="form-check text-center">
-                                                        <input 
-                                                            class="form-check-input" 
-                                                            type="checkbox" 
-                                                            value="" 
-                                                            checked="checked" 
-                                                        />
-                                                    </div>
-                                                </td>
+                                                    <td>{program?.id}</td>
+                                                    <td>{program?.maNhiemVu || ""}</td>
+                                                    <td>{program?.name || ""}</td>
+                                                    <td>{program?.vpcT_Leader || ""}</td>
+                                                    <td>{program?.startDate_Year || ""}</td>
+                                                    <td>{program?.endDate_Year}</td>
+                                                    <td>{program?.ngiemThu_Year}</td>
+                                                    <td>{program?.fundingPlan_FirstYear || ""}</td>
+                                                    <td>{program?.fundingPlan_SecondYear || ""}</td>
+                                                    <td>{program?.fundingPlan_ThirdYear || ""}</td>
+                                                    <td>{program?.departmentAdminSpecialist || ""}</td>
+                                                    <td>{program?.planning_Specialist || ""}</td>
+                                                    <td>{program?.departmentAdmin || ""}</td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input 
+                                                                class="form-check-input" 
+                                                                type="checkbox" 
+                                                                value="" 
+                                                                checked="checked" 
+                                                            />
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>

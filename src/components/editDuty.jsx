@@ -201,6 +201,19 @@ function EditDutyC({ nhiemvuId }) {
                                         <form onSubmit={saveChanges}>
                                             <div className="row bg-gradient-light rounded border border-light shadow">
                                                 <div className="col-sm-3 mt-4">
+                                                </div>
+                                                <div className="col-sm-9 mt-4">
+                                                    <div >
+                                                        <ol className="breadcrumb float-sm-left">
+                                                            <li className="breadcrumb-item"><a href={`/search/chuyengia/${nhiemvu.id}`}>Chuyên gia thuộc chương trình</a></li>
+                                                            <li className="breadcrumb-item active"> <a href={`/search/nhiemvu/${nhiemvu.id}`}> Nhiệm vụ thuộc chương trình</a></li>
+                                                            <li className="breadcrumb-item active"><a href={`/search/coquanquanly/${nhiemvu.id}`}> Đơn vị quản lí </a> </li>
+                                                        </ol>
+                                                    </div>
+                                                    <br />
+                                                </div>
+
+                                                <div className="col-sm-3 mt-4">
                                                     <label className="font-weight-normal" for="reportType"><b>Mã số</b><p className="text-danger d-inline">(*)</p></label>
                                                 </div>
                                                 <div className="col-sm-4 mt-4">
